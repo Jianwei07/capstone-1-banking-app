@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const SignIn = () => {
+function SignIn() {
     return (
         <div>
             <form>
@@ -14,5 +14,7 @@ export const SignIn = () => {
             </form>
             <a href='/registration'>Sign Up</a>
         </div>
-    )
+    );
 }
+
+export default SignIn;
