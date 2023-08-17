@@ -1,6 +1,6 @@
 import './App.css';
 import SignIn from './components/SignIn'
-import { LandingPage } from './components/LandingPage';
+import LandingPage from './components/LandingPage';
 import Registration from './components/Registration'
 import { Profile } from './components/Profile'
 import React, { useState } from 'react';
