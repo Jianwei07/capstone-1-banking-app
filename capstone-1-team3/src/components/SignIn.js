@@ -30,7 +30,7 @@ export const SignIn = (props) => {
                 <input type="checkbox" id='rememberMe' value="false" />
                 <label htmlFor='rememberMe'>Remember Me</label>
                 {isWrongLogin ? <p className='errmsg'>The email or password that you have entered is incorrect</p> : null}
-                <button type='submit' onClick={handleSubmit}>Sign In</button>
+                <button type='submit' onClick={(e) => handleSubmit(e)}>Sign In</button>
             </form>
             <a href='/registration'>Sign Up</a>
         </div>
