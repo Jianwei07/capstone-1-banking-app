@@ -1,5 +1,6 @@
 import './App.css';
 import { SignIn } from './components/SignIn'
+import { LandingPage } from './components/LandingPage';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<SignIn profileList={profileList}/>} />
+          <Route path='/landingpage' element={<LandingPage />} />
         </Routes>
       </Router>
       

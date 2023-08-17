@@ -18,7 +18,6 @@ export const SignIn = (props) => {
             setIsWrongLogin(true);
             setLoginInput(prevInput => ({ ...prevInput, password: "" }));
         }
-        
     }
     return (
         <div className='main'>
