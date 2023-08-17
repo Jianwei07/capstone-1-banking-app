@@ -22,11 +22,11 @@ export function Profile(props) {
             </div>
             <div>
                 <label>First Name: </label>
-                <input type='text' name="fName" value = {inputProfile.fname} onChange={(e)=>handleInput(e)} />
+                <input type='text' name="fName" value = {inputProfile.fName} onChange={(e)=>handleInput(e)} />
             </div>
             <div>
                 <label>Last Name: </label>
-                <input type='text' name="lName" value = {inputProfile.lname} onChange={(e)=>handleInput(e)}/>
+                <input type='text' name="lName" value = {inputProfile.lName} onChange={(e)=>handleInput(e)}/>
             </div>
             <div>
                 <label>NRIC: </label>

@@ -19,6 +19,7 @@ function App() {
     contactNumber: "92480912",
   }])
   const [currentProfile, setCurrentProfile] = useState({})
+
   const handleProfileUpdate = (profile) => {
     setProfileList([...profileList, {
       email: profile.email,
@@ -33,8 +34,10 @@ function App() {
     setCurrentProfile(profile)
   }
   const handleSignInSuccess = (currentProfile) => {
+    console.log(profileList.find(profile => profile.email === currentProfile.email))
     setCurrentProfile(profileList.find(profile => profile.email === currentProfile.email))
   }
+
   return (
     <div>
       <Router>
