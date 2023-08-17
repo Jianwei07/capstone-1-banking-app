@@ -1,10 +1,11 @@
 import React from 'react';
+import './Registration.css'
 
 function Registration() {
     return (
-        <div>
-            <h1>Register for a Bank Account</h1>
-            <form>
+        <div className='registration'>
+            <h1 className='title'>Register for a Bank Account</h1>
+            <form className='container'>
                 <label htmlFor='email'>Email: </label>
                 <input type='email' id='email'></input>
                 <br></br>
