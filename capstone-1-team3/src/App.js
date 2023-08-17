@@ -39,7 +39,7 @@ function App() {
           <Route path='/' element={<SignIn profileList={profileList}/>} />
           <Route path='/landingpage' element={<LandingPage />} />
           <Route path='/registration' element={<Registration />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate}/>} />
         </Routes>
       </Router>
       
