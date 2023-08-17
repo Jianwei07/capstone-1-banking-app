@@ -1,22 +1,19 @@
 /* LandingPage.module.css */
 .appBar {
-    background-color: var(--primary-color);
-    color: var(--common-white);
-  }
-  
-  .logo {
-    margin-right: 2rem;
-    /* Add your logo's styling here */
-  }
-  
-  .headerButtons {
-    margin-left: auto;
-  }
-  
-  .introduction {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
+  background-color: var(--primary-color);
+  color: var(--common-white);
+}
 
-  
-  
+.logo {
+  margin-right: 2rem;
+  /* Add your logo's styling here */
+}
+
+.headerButtons {
+  margin-left: auto;
+}
+
+.introduction {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
