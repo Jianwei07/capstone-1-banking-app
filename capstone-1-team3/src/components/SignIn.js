@@ -6,6 +6,7 @@ function SignIn(props) {
     const [isWrongLogin, setIsWrongLogin] = useState(false)
     const navigate = useNavigate();
     const { profileList } = props
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const profileChecker = profileList.find(profile => profile.email === loginInput.email) //find and return the profile for the input email
@@ -19,13 +20,16 @@ function SignIn(props) {
             setLoginInput(prevInput => ({ ...prevInput, password: "" }));
         }
     }
+    const handleInput = (e) => {
+        setLoginInput({...loginInput, [e.target.name]: e.target.value})
+    }
     return (
         <div className='main'>
             <h1>InnovPay</h1>
             <form>
                 <h2 className='signin'>Sign In</h2>
-                <input type="email" value="" placeholder="Email" />
-                <input type="password" value="" placeholder="Password" />
+                <input type="email" name="email" onChange={handleInput} value={loginInput.email} placeholder="Email" />
+                <input type="password" name="password" onChange={handleInput} value={loginInput.password} placeholder="Password" />
                 <input type="checkbox" id='rememberMe' value="false" />
                 <label htmlFor='rememberMe'>Remember Me</label>
                 {isWrongLogin ? <p className='errmsg'>The email or password that you have entered is incorrect</p> : null}
