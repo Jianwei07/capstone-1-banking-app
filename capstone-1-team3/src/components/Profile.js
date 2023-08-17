@@ -1,59 +1,50 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-export function Profile() {
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [nric, setNric] = useState('')
-    const [address, setAddress] = useState('')
-    const [dob, setDob] = useState('')
-    const [contactNo, setContactNo] = useState('')
+export function Profile(props) {
+    const {currentProfile, handleProfileUpdate} = props
+    const [inputProfile, setInputProfile] = useState(currentProfile)
 
-    const handleUpdateProfile = (e) => {
+    const handleInput = (e) => {
         e.preventDefault()
-
-        const profUpdate = {
-            firstName: firstName,
-            lastName: lastName,
-            nric: nric,
-            address: address,
-            dob: dob,
-            contactNo: contactNo,
-        }
-
+        setInputProfile({...inputProfile, [e.target.name]: e.target.value})
     }
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        handleProfileUpdate(inputProfile)
+    }
   return (
     <div>
         <h2>Your Profile</h2>
-        <form onSubmit={handleUpdateProfile}>
+        <form onSubmit={handleSubmit}>
             <div>
                 Profile: {/*current logged on email*/}
             </div>
             <div>
                 <label>First Name: </label>
-                <input type='text' value = {firstName} />
+                <input type='text' name="fName" value = {inputProfile.fname} onChange={(e)=>handleInput(e)} />
             </div>
             <div>
                 <label>Last Name: </label>
-                <input type='text' value = {lastName} />
+                <input type='text' name="lName" value = {inputProfile.lname} onChange={(e)=>handleInput(e)}/>
             </div>
             <div>
                 <label>NRIC: </label>
-                <input type='text' value = {nric} />
+                <input type='text' name="nRIC" value = {inputProfile.nRIC} onChange={(e)=>handleInput(e)} />
             </div>
             <div>
                 <label>Address: </label>
-                <input type='text' value = {address} />
+                <input type='text' name="address" value = {inputProfile.address} onChange={(e)=>handleInput(e)} />
             </div>
             <div>
                 <label>Date of Birth: </label>
-                <input type='date' value = {dob} />
+                <input type='date' name="birthDate" value = {inputProfile.birthDate} onChange={(e)=>handleInput(e)} />
             </div>
             <div>
                 <label>Contact Number: </label>
-                <input type='tel' value = {contactNo} />
+                <input type='tel' name="contactNumber" value = {inputProfile.contactNumber} onChange={(e)=>handleInput(e)} />
             </div>
-            <button type='submit'>Update</button>
+            <button type='submit' onClick={handleSubmit}>Update</button>
         </form>
     <div>
         Back to <Link to='/LandingPage'>Home</Link>
