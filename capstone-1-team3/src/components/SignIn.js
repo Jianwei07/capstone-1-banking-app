@@ -6,7 +6,7 @@ function SignIn(props) {
     const [loginInput, setLoginInput] = useState({ email: "", password: "" })
     const [isWrongLogin, setIsWrongLogin] = useState(false)
     const navigate = useNavigate();
-    const { profileList } = props
+    const { profileList, handleSignInSuccess } = props
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,7 +14,8 @@ function SignIn(props) {
         if (profileChecker && profileChecker.password === loginInput.password) {
             //correct information
             setIsWrongLogin(false);
-            navigate('/landingpage');
+            handleSignInSuccess(loginInput)
+            navigate('/profile');
         } else {
             //wrong information
             setIsWrongLogin(true);

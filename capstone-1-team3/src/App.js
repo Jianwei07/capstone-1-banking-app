@@ -9,14 +9,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [profileList, setProfileList] = useState([{
-    email: "",
-    password: "",
-    fName: "",
-    lName: "",
-    nRIC: "",
-    address: "",
+    email: "sample@gmail.com",
+    password: "123",
+    fName: "Tom",
+    lName: "Tan",
+    nRIC: "S9849142",
+    address: "Singapore",
     birthDate: "",
-    contactNumber: "",
+    contactNumber: "92480912",
   }])
   const [currentProfile, setCurrentProfile] = useState({})
   const handleProfileUpdate = (profile) => {
@@ -32,18 +32,19 @@ function App() {
     }])
     setCurrentProfile(profile)
   }
+  const handleSignInSuccess = (currentProfile) => {
+    setCurrentProfile(profileList.find(profile => profile.email === currentProfile.email))
+  }
   return (
     <div>
       <Router>
         <Routes>
-          <Route path='/' element={<SignIn profileList={profileList}/>} />
+          <Route path='/' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess}/>} />
           <Route path='/landingpage' element={<LandingPage />} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate}/>} />
         </Routes>
       </Router>
-      
-
     </div>
   );
 }
