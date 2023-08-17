@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './SignIn.css'
 
 export const SignIn = (props) => {
     const [loginInput, setLoginInput] = useState({ email: "", password: "" })
@@ -24,7 +25,7 @@ export const SignIn = (props) => {
         setLoginInput({...loginInput, [e.target.name]: e.target.value})
     }
     return (
-        <div className='main'>
+        <div className='home'>
             <h1>InnovPay</h1>
             <form>
                 <h2 className='signin'>Sign In</h2>
