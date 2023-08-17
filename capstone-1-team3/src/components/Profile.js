@@ -18,7 +18,7 @@ export default function Profile() {
             nric: nric,
             address: address,
             dob: dob,
-            contactNo: contactNo
+            contactNo: contactNo,
         }
 
     }
@@ -57,7 +57,7 @@ export default function Profile() {
             <button type='submit'>Update</button>
         </form>
     <div>
-        Back to Login {/* back to log in button */}
+        Back to <Link to='/LandingPage'>Home</Link>
     </div>
     </div>
   )
