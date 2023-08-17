@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './SignIn.css'
 
-export const SignIn = (props) => {
+function SignIn(props) {
     const [loginInput, setLoginInput] = useState({ email: "", password: "" })
     const [isWrongLogin, setIsWrongLogin] = useState(false)
     const navigate = useNavigate();
@@ -38,5 +38,7 @@ export const SignIn = (props) => {
             </form>
             <a href='/registration'>Sign Up</a>
         </div>
-    )
+    );
 }
+
+export default SignIn;
