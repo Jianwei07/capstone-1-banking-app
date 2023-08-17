@@ -21,16 +21,16 @@ export const SignIn = (props) => {
         
     }
     return (
-        <div>
+        <div className='main'>
             <h1>InnovPay</h1>
             <form>
-                <h2>Sign In</h2>
+                <h2 className='signin'>Sign In</h2>
                 <input type="email" value="" placeholder="Email" />
                 <input type="password" value="" placeholder="Password" />
                 <input type="checkbox" id='rememberMe' value="false" />
                 <label htmlFor='rememberMe'>Remember Me</label>
-                {isWrongLogin ? <p>The email or password that you have entered is incorrect</p> : null}
-                <button type='submit' onClick={(e) => handleSubmit(e)}>Sign In</button>
+                {isWrongLogin ? <p className='errmsg'>The email or password that you have entered is incorrect</p> : null}
+                <button type='submit' onClick={handleSubmit}>Sign In</button>
             </form>
             <a href='/registration'>Sign Up</a>
         </div>
