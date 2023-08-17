@@ -2,9 +2,14 @@ import React from 'react';
 import './Registration.css'
 
 function Registration() {
+    const handleSubmit =(e) => {
+        e.preventDefault();
+        
+
+    }
     return (
         <div className='registration'>
-            <form className='container'>
+            <form className='container' onSubmit={handleSubmit}>
             <h1 className='title'>Register for a Bank Account</h1>
             <br />
                 <div className='input-group'>
