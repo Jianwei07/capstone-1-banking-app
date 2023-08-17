@@ -5,14 +5,14 @@ export const SignIn = () => {
         
     }
     return (
-        <div>
+        <div className='main'>
             <form>
-                <h2>Sign In</h2>
+                <h2 className='signin'>Sign In</h2>
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <input type="checkbox" id='rememberMe' />
                 <label htmlFor='rememberMe'>Remember Me</label>
-                {isWrongLogin ? <p>The email or password that you have entered is incorrect</p> : null}
+                {isWrongLogin ? <p className='errmsg'>The email or password that you have entered is incorrect</p> : null}
                 <button type='submit' onClick={handleSubmit}>Sign In</button>
             </form>
             <a href='/registration'>Sign Up</a>
