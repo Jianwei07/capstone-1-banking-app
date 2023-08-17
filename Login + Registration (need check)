@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Banking App</title>
+  <script>
+    function validateEmail(email) {
+      // Simple email format validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function validateRegistrationForm() {
+      const regEmail = document.getElementById('regEmail').value;
+      const regPassword = document.getElementById('regPassword').value;
+      const regRePassword = document.getElementById('regRePassword').value;
+      
+      if (!validateEmail(regEmail)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+      
+      if (regPassword !== regRePassword) {
+        alert('Passwords do not match.');
+        return false;
+      }
+
+      // Additional validation for other fields can be added here
+
+      return true;
+    }
+
+    function registerUser() {
+      if (validateRegistrationForm()) {
+        alert('Registration successful! You can now log in.');
+        showLoginForm();
+      }
+    }
+
+    function loginUser() {
+      const loginEmail = document.getElementById('loginEmail').value;
+      const loginPassword = document.getElementById('loginPassword').value;
+
+      // You would replace this with actual user authentication logic
+      if (validCredentials(loginEmail, loginPassword)) {
+        alert('Login successful!');
+        showLoggedInArea(loginEmail);
+      } else {
+        alert('Invalid credentials.');
+      }
+    }
+
+    function validCredentials(email, password) {
+      // In a real application, you would verify credentials from a database or other secure storage
+      // For this example, we're assuming a hardcoded valid user
+      const validUser = { email: 'test@example.com', password: 'password' };
+      return email === validUser.email && password === validUser.password;
+    }
+
+    function showLoginForm() {
+      document.getElementById('registrationForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function showLoggedInArea(email) {
+      document.getElementById('loginForm').style.display = 'none';
+      document.getElementById('loggedInArea').style.display = 'block';
+      document.getElementById('loggedInEmail').textContent = email;
+    }
+  </script>
+</head>
+<body>
+  <h1>Welcome to the Banking App</h1>
+  
+  <div id="registrationForm">
+    <h2>Register</h2>
+    <input type="email" id="regEmail" placeholder="Email" required><br>
+    <input type="password" id="regPassword" placeholder="Password" required><br>
+    <input type="password" id="regRePassword" placeholder="Re-enter Password" required><br>
+    <!-- Other registration fields can be added here -->
+    <button onclick="registerUser()">Register</button>
+  </div>
+  
+  <div id="loginForm">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required><br>
+    <input type="password" id="loginPassword" placeholder="Password" required><br>
+    <button onclick="loginUser()">Login</button>
+  </div>
+  
+  <div id="loggedInArea" style="display: none;">
+    <h2>Welcome, <span id="loggedInEmail"></span>!</h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+</body>
+</html>
