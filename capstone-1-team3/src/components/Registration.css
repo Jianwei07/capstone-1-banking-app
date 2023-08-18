@@ -11,7 +11,64 @@
     color: white;
     text-align: center;
     margin-top: 0;
+    opacity: 0; /* Start with opacity set to 0 */
+    animation: fadeIn 1s ease-in-out forwards; /* Apply the fadeIn animation */
 }
+
+.container {
+    width: 80%;
+    max-width: 750px;
+    background-color: #33415C;
+    border-radius: 10px;
+    padding: 20px; /* Reduce padding for more compact spacing */
+    color: #fff;
+    text-align: left;
+    margin-top: 20px; /* Added margin for separation from title */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    animation: fadeIn 1s ease-in-out forwards; /* Apply the fadeIn animation */
+
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Increase margin for more spacing between lines */
+}
+
+.input-group label {
+    width: 120px;
+}
+
+.name-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Increase margin for more spacing between lines */
+}
+
+.container input[type="text"],
+.container input[type="email"],
+.container input[type="password"],
+.container input[type="date"],
+.container input[type="tel"] {
+    flex: 1;
+    padding: 12px; /* Adjust padding for more spacious input boxes */
+    margin-left: 2px; /* Add margin for spacing between label and input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto; /* Center the button horizontally */
+}
+
 
 .container {
     width: 80%;
@@ -63,4 +120,15 @@ button {
     cursor: pointer;
     display: block;
     margin: 10px auto; /* Center the button horizontally */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with 0 opacity */
+        transform: translateY(-10px); /* Move element slightly up */
+    }
+    to {
+        opacity: 1; /* End with full opacity */
+        transform: translateY(0); /* Return element to original position */
+    }
 }

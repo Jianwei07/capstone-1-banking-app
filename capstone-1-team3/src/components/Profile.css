@@ -15,9 +15,11 @@
     margin-bottom: 25px;
 }
 
+/* Profile.css */
+
 .profile-form {
     width: 80%;
-    max-width: 650px; /* Increased max-width for better spacing */
+    max-width: 650px;
     background-color: #33415C;
     border-radius: 10px;
     padding: 20px;
@@ -25,6 +27,19 @@
     text-align: left;
     margin-top: 20px;
     box-sizing: border-box;
+    opacity: 0; /* Start with opacity set to 0 */
+    animation: fadeIn 1s ease-in-out forwards; /* Apply the fadeIn animation */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with 0 opacity */
+        transform: translateY(-10px); /* Move container slightly up */
+    }
+    to {
+        opacity: 1; /* End with full opacity */
+        transform: translateY(0); /* Return container to original position */
+    }
 }
 
 .profile-field {
