@@ -39,7 +39,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="root-container">
       <Router>
         <Routes>
           <Route path='/' element={<LandingPage />} />

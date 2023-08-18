@@ -1,7 +1,35 @@
-.home {
-    background-color: #0466c8;
+.signInForm {
+    text-align: center;
+    width: 40%;
+    background-color: #33415C;
+}
+.signInContainer{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding-top: 5%; */
+}
+.Innov{
+    color: #001845;
+}
+.customTextField .MuiFilledInput-root, 
+.customTextField .MuiFilledInput-root:focus, 
+.customTextField .MuiFilledInput-root:hover{
+    background-color: #ffffff;
 }
 
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bankName{
+    margin-top: 0;
+    color: #ffffff
+}
 .errmsg {
     color: red;
     font-size: 12px;
