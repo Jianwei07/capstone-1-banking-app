@@ -20,6 +20,19 @@ function App() {
   }])
   const [currentProfile, setCurrentProfile] = useState({})
 
+  const handleRegister = (profile) => {
+    setProfileList([...profileList, {
+      email: profile.email,
+      password: profile.password,
+      fName: profile.first,
+      lName: profile.last,
+      nRIC: profile.nric,
+      address: profile.address,
+      birthDate: profile.dob,
+      contactNumber: profile.contact
+    }]);
+  };
+
   const handleProfileUpdate = (profile) => {
     setProfileList([...profileList, {
       email: profile.email,
@@ -44,7 +57,7 @@ function App() {
         <Routes>
           <Route path='/' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess}/>} />
           <Route path='/landingpage' element={<LandingPage />} />
-          <Route path='/registration' element={<Registration />} />
+          <Route path='/registration' element={<Registration handleRegister={handleRegister} />} />
           <Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate}/>} />
         </Routes>
       </Router>
