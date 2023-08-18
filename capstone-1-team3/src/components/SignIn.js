@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import '../style/SignIn.css'
 import { Grid, TextField, Button } from '@mui/material'
 
@@ -48,7 +48,7 @@ function SignIn(props) {
                     {isWrongLogin ? <p className='errmsg'>The email or password that you have entered is incorrect</p> : null}
                     <Button variant="contained" type='submit' onClick={(e) => handleSubmit(e)}>Sign In</Button>
                 </form>
-                <a href='/registration' className='signUp'>Sign Up</a>
+                <Link to="/registration" className='signUp'>Sign Up</Link>
             </div>
         </div>
 
