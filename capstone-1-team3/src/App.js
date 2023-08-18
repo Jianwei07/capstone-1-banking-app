@@ -91,7 +91,7 @@ const App = () => {
         </div>
       ) : (
         <div className="main-content">
-          <div className="animate__animated animate__fadeIn">
+          <div className="hello animate__animated animate__fadeIn">
 
             <Router>
               <Header />
