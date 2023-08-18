@@ -4,11 +4,11 @@ import '../style/Profile.css';
 
 export function Profile(props) {
     const { currentProfile, handleProfileUpdate } = props;
-    const [inputProfile, setInputProfile] = useState(currentProfile);
+    const [inputProfile, setInputProfile] = useState(currentProfile); //{ email:[currentEmail], profile: profileList[currentEmail] }
 
     const handleInput = (e) => {
         e.preventDefault();
-        setInputProfile({ ...inputProfile, [e.target.name]: e.target.value });
+        setInputProfile({ ...inputProfile, profile: {...inputProfile.profile, [e.target.name]: e.target.value }});
     };
 
     const handleSubmit = (e) => {

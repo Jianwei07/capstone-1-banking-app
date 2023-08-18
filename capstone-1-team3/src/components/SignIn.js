@@ -11,11 +11,11 @@ function SignIn(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const profileChecker = profileList.find(profile => profile.email === loginInput.email) //find and return the profile for the input email
+        const profileChecker = profileList[loginInput.email] //find and return the profile for the input email
         if (profileChecker && profileChecker.password === loginInput.password) {
             //correct information
             setIsWrongLogin(false);
-            handleSignInSuccess(loginInput)
+            handleSignInSuccess(loginInput.email)
             navigate('/profile');
         } else {
             //wrong information
