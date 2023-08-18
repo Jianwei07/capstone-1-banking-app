@@ -1,0 +1,77 @@
+/* Profile.css */
+
+.profile-page {
+    width: 100%;
+    height: 100vh;
+    background-color: #3498db;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.yourprofile {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-form {
+    width: 80%;
+    max-width: 650px; /* Increased max-width for better spacing */
+    background-color: #33415C;
+    border-radius: 10px;
+    padding: 20px;
+    color: #fff;
+    text-align: left;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+.profile-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile-field label {
+    width: 100px;
+    flex-shrink: 0; /* Prevent label from shrinking */
+    margin-right: 10px; /* Add some spacing between label and input */
+    margin-bottom: 10px
+}
+
+.name-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.profile-field input[type="text"],
+.profile-field input[type="date"],
+.profile-field input[type="tel"] {
+    flex: 1; /* Expand input to fill available space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #2ecc71;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto;
+}
+
+.logout-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logout-link a {
+    color: #fff;
+    text-decoration: none;
+}
