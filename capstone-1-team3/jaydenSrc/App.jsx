@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import About from "./About";
-import Contact from "./Contact";
+import Hero from "./Hero";
 import Footer from "./Footer";
 import "./App.css";
 import SignIn from "./components/SignIn";
@@ -28,7 +28,7 @@ const MainContent = () => {
   return (
     <>
       <Header />
-      <AboutAndContact />
+      <HeroAndAbout />
       <Footer />
     </>
   );
@@ -57,8 +57,8 @@ const SignUp = () => {
 const AboutAndContact = () => {
   return (
     <>
+      <Hero />
       <About />
-      <Contact />
     </>
   );
 };
