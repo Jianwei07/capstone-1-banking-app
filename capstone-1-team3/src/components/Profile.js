@@ -12,6 +12,7 @@ export function Profile(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
         handleProfileUpdate(inputProfile)
+        alert("Profile Updated!")
     }
   return (
     <div>
