@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './SignIn.css'
-import { Card, TextField } from '@mui/material'
+import { Card, TextField, Button } from '@mui/material'
 
 function SignIn(props) {
     const [loginInput, setLoginInput] = useState({ email: "", password: "" })
@@ -39,9 +39,9 @@ function SignIn(props) {
                         <label htmlFor='rememberMe'>Remember Me</label>
                     </div>
                     {isWrongLogin ? <p className='errmsg'>The email or password that you have entered is incorrect</p> : null}
-                    <button type='submit' onClick={(e) => handleSubmit(e)}>Sign In</button>
+                    <Button variant="contained" type='submit' onClick={(e) => handleSubmit(e)}>Sign In</Button>
                 </form>
-                <a href='/registration'>Sign Up</a>
+                <a href='/registration' className='signUp'>Sign Up</a>
             </Card>
         </div>
 
