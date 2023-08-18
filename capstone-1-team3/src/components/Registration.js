@@ -73,7 +73,7 @@ function Registration() {
                     <label htmlFor='contact'>Contact Number:</label>
                     <input type='tel' id='contact' />
                 </div>
-                <button type='submit'>Submit</button>
+                <button type='submit'>Register</button>
             </form>
         </div>
     );
