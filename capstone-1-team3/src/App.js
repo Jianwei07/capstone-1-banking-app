@@ -42,8 +42,8 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path='/' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess}/>} />
-          <Route path='/landingpage' element={<LandingPage />} />
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/login' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess}/>} />
           <Route path='/registration' element={<Registration />} />
           <Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate}/>} />
         </Routes>
