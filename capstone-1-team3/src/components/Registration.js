@@ -1,5 +1,28 @@
 import React from 'react';
 
+const init = {
+    email: '',
+    password: '',
+    rePassword: '',
+    first: '',
+    last: '',
+    nric: '',
+    address: '',
+    dob: '',
+    contact: ''
+};
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'email':
+            
+            break;
+    
+        default:
+            break;
+    };
+};
+
 function Registration() {
     return (
         <div>
@@ -31,7 +54,7 @@ function Registration() {
                 <label htmlFor='contact'>Contact Number: </label>
                 <input type='tel' id='contact'></input>
                 <br></br>
-                <input type='submit'></input>
+                <input type='submit' value={'Register'}></input>
             </form>
         </div>
     );
