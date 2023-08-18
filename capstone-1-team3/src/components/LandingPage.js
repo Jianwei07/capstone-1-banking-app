@@ -7,8 +7,9 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import LandingPageStyles from "./LandingPage.css"; // Import the CSS module
-import { useNavigate } from 'react-router-dom'
+import LandingPageStyles from "../style/LandingPage.css"; // Import the CSS module
+import { useNavigate } from 'react-router-dom';
+import logo from "../style/favicon.ico";
 
 const LandingPage = () => {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const LandingPage = () => {
         <Toolbar>
           <img
             className={LandingPageStyles.logo}
-            src="your-logo.png"
+            src={logo}
             alt="Logo"
           />
           <Box className={LandingPageStyles.headerButtons}>
@@ -32,6 +33,7 @@ const LandingPage = () => {
           variant="h2"
           align="center"
           className={LandingPageStyles.introduction}
+          color="#F2F2F2"
         >
           Welcome to InnoPay!
         </Typography>

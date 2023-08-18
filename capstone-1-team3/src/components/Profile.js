@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Profile.css';
+import '../style/Profile.css';
 
 export function Profile(props) {
     const { currentProfile, handleProfileUpdate } = props;
@@ -64,3 +64,5 @@ export function Profile(props) {
         </div>
     );
 }
+
+export default Profile;
