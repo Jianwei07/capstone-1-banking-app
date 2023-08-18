@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/capstone-1-banking-app/static/css/main.188c433e.css",
+    "main.js": "/capstone-1-banking-app/static/js/main.1bc7cd58.js",
+    "static/media/load.png": "/capstone-1-banking-app/static/media/load.bc430cb522e123ae2def.png",
+    "index.html": "/capstone-1-banking-app/index.html",
+    "main.188c433e.css.map": "/capstone-1-banking-app/static/css/main.188c433e.css.map",
+    "main.1bc7cd58.js.map": "/capstone-1-banking-app/static/js/main.1bc7cd58.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.188c433e.css",
+    "static/js/main.1bc7cd58.js"
+  ]
+}
