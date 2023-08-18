@@ -1,6 +1,6 @@
 import React, {useState, useReducer} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import './Registration.css'
+import '../style/Registration.css'
 
 const init = {
     email: '',

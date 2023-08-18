@@ -1,68 +1,94 @@
-import './App.css';
+import './style/App.css';
+import 'animate.css';
+import loadPic from './style/load.png';
 import SignIn from './components/SignIn'
 import LandingPage from './components/LandingPage';
 import Registration from './components/Registration'
-import { Profile } from './components/Profile'
-import React, { useState } from 'react';
+import Profile from './components/Profile'
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
-function App() {
-  const [profileList, setProfileList] = useState([{
-    email: "sample@gmail.com",
-    password: "123",
-    fName: "Tom",
-    lName: "Tan",
-    nRIC: "S9849142",
-    address: "Singapore",
-    birthDate: "",
-    contactNumber: "92480912",
-  }])
-  const [currentProfile, setCurrentProfile] = useState({})
+const App = () => {
 
-  const handleRegister = (profile) => {
-    setProfileList([...profileList, {
-      email: profile.email,
-      password: profile.password,
-      fName: profile.first,
-      lName: profile.last,
-      nRIC: profile.nric,
-      address: profile.address,
-      birthDate: profile.dob,
-      contactNumber: profile.contact
-    }]);
-  };
+	// Setup Loading
+	const [loading, setLoading] = useState(false);
 
-  const handleProfileUpdate = (profile) => {
-    setProfileList([...profileList, {
-      email: profile.email,
-      password: profile.password,
-      fName: profile.fName,
-      lName: profile.lName,
-      nRIC: profile.nRIC,
-      address: profile.address,
-      birthDate: profile.birthDate,
-      contactNumber: profile.contactNumber,
-    }])
-    setCurrentProfile(profile)
-  }
-  const handleSignInSuccess = (currentProfile) => {
-    console.log(profileList.find(profile => profile.email === currentProfile.email))
-    setCurrentProfile(profileList.find(profile => profile.email === currentProfile.email))
-  }
+	useEffect(() => {
+		setLoading(true);
+		setTimeout(() => {
+			setLoading(false);
+		}, 2000);
+	}, []);
 
-  return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path='/' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess}/>} />
-          <Route path='/landingpage' element={<LandingPage />} />
-          <Route path='/registration' element={<Registration handleRegister={handleRegister} />} />
-          <Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate}/>} />
-        </Routes>
-      </Router>
-    </div>
-  );
-}
+	// Setup Profile
+	const [profileList, setProfileList] = useState([{
+		email: "sample@gmail.com",
+		password: "123",
+		fName: "Tom",
+		lName: "Tan",
+		nRIC: "S9849142",
+		address: "Singapore",
+		birthDate: "",
+		contactNumber: "92480912",
+	}])
+	const [currentProfile, setCurrentProfile] = useState({})
+
+	const handleRegister = (profile) => {
+		setProfileList([...profileList, {
+		  email: profile.email,
+		  password: profile.password,
+		  fName: profile.first,
+		  lName: profile.last,
+		  nRIC: profile.nric,
+		  address: profile.address,
+		  birthDate: profile.dob,
+		  contactNumber: profile.contact
+		}]);
+	  };
+
+	const handleProfileUpdate = (profile) => {
+		setProfileList([...profileList, {
+			email: profile.email,
+			password: profile.password,
+			fName: profile.fName,
+			lName: profile.lName,
+			nRIC: profile.nRIC,
+			address: profile.address,
+			birthDate: profile.birthDate,
+			contactNumber: profile.contactNumber,
+		}])
+		setCurrentProfile(profile)
+	}
+	const handleSignInSuccess = (currentProfile) => {
+		console.log(profileList.find(profile => profile.email === currentProfile.email))
+		setCurrentProfile(profileList.find(profile => profile.email === currentProfile.email))
+	}
+
+	return (
+		<div>
+			{loading ? (
+				<div className="loader-container">
+					<div className="animate__animated animate__fadeIn animate__fadeOut">
+						<img className="loadPic" src={loadPic} alt="InnovPay" />
+					</div>
+				</div>
+			) : (
+				<div className="main-content">
+					<div className="animate__animated animate__fadeIn">
+					<Router>
+						<Routes>
+							<Route path='/' element={<LandingPage />} />
+							<Route path='/login' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess} />} />
+							<Route path='/registration' element={<Registration handleRegister={handleRegister} />} />
+							<Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate} />} />
+						</Routes>
+					</Router>
+					</div>
+				</div>
+			)}
+		</div>
+	);
+};
 
 export default App;

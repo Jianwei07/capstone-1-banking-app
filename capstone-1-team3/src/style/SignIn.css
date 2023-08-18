@@ -1,0 +1,58 @@
+.signInForm {
+    text-align: center;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+.signInContainer{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Innov{
+    color: #001845;
+}
+.customTextField .MuiFilledInput-root, 
+.customTextField .MuiFilledInput-root:focus, 
+.customTextField .MuiFilledInput-root:hover{
+    background-color: #ffffff;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #979DAC;
+}
+
+.bankName{
+    padding-top: 5%;
+    margin-top: 0;
+    color: #ffffff
+}
+.errmsg {
+    color: red;
+    font-size: 12px;
+}
+
+.signin {
+    color: white;
+}
+
+
+.signUp:link,
+.signUp:visited {
+    color: #3F9ADD;
+}
+
+.signUp,
+.signUp:hover,
+.signUp:active {
+    color: #3F9ADD; 
+    text-decoration: none;  /* Ensure underline doesn't show on hover */
+}
