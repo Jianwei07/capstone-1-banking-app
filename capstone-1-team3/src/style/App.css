@@ -25,6 +25,9 @@
 .main-content .animate__animated .animate__fadeIn {
     --animate-duration: 1s;
 }
+.hello{
+    height:100%;
+}
 
 .main-content {
     width: 100%;

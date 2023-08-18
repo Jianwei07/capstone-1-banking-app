@@ -2,6 +2,8 @@ import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
+import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
 import {
   FaFacebook,
   FaInstagram,
@@ -15,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 const Footer = () => {
   const navigate = useNavigate();
   return (
+
     <Box
       component="footer"
       sx={{
@@ -22,6 +25,10 @@ const Footer = () => {
         color: "white",
         padding: "64px 0",
         textAlign: "center",
+        position: "absolute",
+        left: 0,
+        bottom: 0,
+        right: 0,
       }}
     >
       <Link
@@ -43,6 +50,7 @@ const Footer = () => {
       </Box>
       <Typography variant="body2">Copyright © 2023.</Typography>
     </Box>
+
   );
 };
 

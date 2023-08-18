@@ -39,16 +39,16 @@ const App = () => {
 
 	const handleRegister = (profile) => {
 		setProfileList([...profileList, {
-		  email: profile.email,
-		  password: profile.password,
-		  fName: profile.first,
-		  lName: profile.last,
-		  nRIC: profile.nric,
-		  address: profile.address,
-		  birthDate: profile.dob,
-		  contactNumber: profile.contact
+			email: profile.email,
+			password: profile.password,
+			fName: profile.first,
+			lName: profile.last,
+			nRIC: profile.nric,
+			address: profile.address,
+			birthDate: profile.dob,
+			contactNumber: profile.contact
 		}]);
-	  };
+	};
 
 	const handleProfileUpdate = (profile) => {
 		setProfileList([...profileList, {
@@ -78,17 +78,17 @@ const App = () => {
 				</div>
 			) : (
 				<div className="main-content">
-					<div className="animate__animated animate__fadeIn">
-						
+					<div className="hello animate__animated animate__fadeIn">
+
 						<Router>
-						<Header />
+							<Header />
 							<Routes>
-								
+
 								<Route path="/" element={<About />} />
 								<Route path="/login" element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess} />} />
 								<Route path="/registration" element={<Registration handleRegister={handleRegister} />} />
 								<Route path="/profile" element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate} />} />
-								
+
 							</Routes>
 							<Footer />
 						</Router>
@@ -96,8 +96,9 @@ const App = () => {
 
 					</div>
 				</div>
-			)}
-		</div>
+			)
+			}
+		</div >
 	);
 };
 
