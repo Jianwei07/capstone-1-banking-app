@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../style/SignIn.css'
-import { Card, TextField, Button } from '@mui/material'
+import { Grid, TextField, Button } from '@mui/material'
 
 function SignIn(props) {
     const [loginInput, setLoginInput] = useState({ email: "", password: "" })
@@ -26,14 +26,21 @@ function SignIn(props) {
     const handleInput = (e) => {
         setLoginInput({ ...loginInput, [e.target.name]: e.target.value })
     }
+
+
+
     return (
         <div className='signInContainer'>
             <h1 className='bankName'><span className='Innov'>Innov</span>Pay</h1>
-            <Card className='signInForm' variant="outlined" style={{ backgroundColor: '#33415C' }}>
+            <div className='signInForm' variant="outlined" style={{ backgroundColor: '#33415C' }}>
                 <form className='formContainer'>
                     <h2 className='signin'>Sign In</h2>
-                    <TextField className="customTextField" variant="filled" type="email" name="email" onChange={handleInput} value={loginInput.email} placeholder="Email" />
-                    <TextField className="customTextField" variant="filled" type="password" name="password" onChange={handleInput} value={loginInput.password} placeholder="Password" />
+                    <Grid item xs={6} md={6}>
+                    <TextField fullWidth className="customTextField" variant="filled" type="email" name="email" onChange={handleInput} value={loginInput.email} placeholder="Email" />
+                    <TextField fullWidth className="customTextField"  variant="filled" type="password" name="password" onChange={handleInput} value={loginInput.password} placeholder="Password" />
+
+                    </Grid>
+                    
                     <div>
                         <input type="checkbox" id='rememberMe' value="false" />
                         <label htmlFor='rememberMe'>Remember Me</label>
@@ -42,7 +49,7 @@ function SignIn(props) {
                     <Button variant="contained" type='submit' onClick={(e) => handleSubmit(e)}>Sign In</Button>
                 </form>
                 <a href='/registration' className='signUp'>Sign Up</a>
-            </Card>
+            </div>
         </div>
 
     );

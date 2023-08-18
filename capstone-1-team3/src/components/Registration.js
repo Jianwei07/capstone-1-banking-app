@@ -32,7 +32,8 @@ function Registration() {
     }
     return (
         <div className='registration'>
-            <form className='container' onSubmit={handleSubmit}>
+
+            <form  className='container'onSubmit={handleSubmit}>
             <h1 className='title'>Register for a Bank Account</h1>
             <br />
                 <div className='input-group'>
@@ -75,7 +76,10 @@ function Registration() {
                 </div>
                 <button type='submit'>Register</button>
             </form>
-        </div>
+
+            </div>
+            
+
     );
 }
 

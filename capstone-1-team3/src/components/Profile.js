@@ -56,11 +56,15 @@ export function Profile(props) {
                         onChange={(e) => handleInput(e)}
                     />
                 </div>
-                <button type="submit" onClick={handleSubmit}>Update</button>
+                <div className='buttons'>
+                    <button type="submit" onClick={handleSubmit}>Update</button>
+                    <button><Link to="/">Log Out</Link></button>
+                </div>
+
             </form>
-            <div className="logout-link">
-                <Link to="/">Log Out</Link>
-            </div>
+            {/* <div className="logout-link">
+                
+            </div> */}
         </div>
     );
 }

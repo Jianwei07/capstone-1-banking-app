@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./Header";
-import About from "./About";
-import Hero from "./Hero";
-import Footer from "./Footer";
+import Header from "../src/components/Header";
+import About from "../src/components/About";
+import Hero from "../src/components/Hero";
+import Footer from "../src/components/Footer";
 import "./App.css";
 import SignIn from "./components/SignIn";
 import Registration from "./components/Registration";

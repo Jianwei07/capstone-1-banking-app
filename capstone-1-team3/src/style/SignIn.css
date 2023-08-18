@@ -1,6 +1,6 @@
 .signInForm {
     text-align: center;
-    width: 20%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -20,6 +20,7 @@
 .customTextField .MuiFilledInput-root:focus, 
 .customTextField .MuiFilledInput-root:hover{
     background-color: #ffffff;
+
 }
 
 .formContainer{
@@ -27,7 +28,6 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    color: #979DAC;
 }
 
 .bankName{

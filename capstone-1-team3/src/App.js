@@ -2,11 +2,14 @@ import './style/App.css';
 import 'animate.css';
 import loadPic from './style/load.png';
 import SignIn from './components/SignIn'
-import LandingPage from './components/LandingPage';
 import Registration from './components/Registration'
 import Profile from './components/Profile'
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from "../src/components/Header";
+import About from "../src/components/About";
+import Hero from "../src/components/Hero";
+import Footer from "../src/components/Footer";
 
 
 const App = () => {
@@ -63,14 +66,21 @@ const App = () => {
 			) : (
 				<div className="main-content">
 					<div className="animate__animated animate__fadeIn">
-					<Router>
-						<Routes>
-							<Route path='/' element={<LandingPage />} />
-							<Route path='/login' element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess} />} />
-							<Route path='/registration' element={<Registration />} />
-							<Route path='/profile' element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate} />} />
-						</Routes>
-					</Router>
+						
+						<Router>
+						<Header />
+							<Routes>
+								
+								<Route path="/" element={<About />} />
+								<Route path="/login" element={<SignIn profileList={profileList} handleSignInSuccess={handleSignInSuccess} />} />
+								<Route path="/registration" element={<Registration />} />
+								<Route path="/profile" element={<Profile currentProfile={currentProfile} handleProfileUpdate={handleProfileUpdate} />} />
+								
+							</Routes>
+							<Footer />
+						</Router>
+
+
 					</div>
 				</div>
 			)}
@@ -78,4 +88,32 @@ const App = () => {
 	);
 };
 
+// const Login = () => {
+// 	return (
+// 		<>
+// 			<Header />
+// 			<About />
+// 			<Footer />
+// 		</>
+// 	);
+// };
+
+// const SignUp = () => {
+// 	return (
+// 		<>
+// 			<Header showNavLinks={false} />
+// 			<Registration />
+// 			<Footer />
+// 		</>
+// 	);
+// };
+
+// const AboutAndContact = () => {
+// 	return (
+// 		<>
+// 			<Hero />
+// 			<About />
+// 		</>
+// 	);
+// };
 export default App;
