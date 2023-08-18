@@ -33,7 +33,7 @@ const Footer = () => {
     >
       <Link
         style={{ cursor: "pointer", marginLeft: "10px" }}
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/capstone-1-banking-app")}
         variant="button"
         color="inherit"
         sx={{ textDecoration: "none", marginBottom: 2 }}
