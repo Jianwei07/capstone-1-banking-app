@@ -47,7 +47,7 @@ export function Profile(props) {
             <button type='submit' onClick={handleSubmit}>Update</button>
         </form>
     <div>
-        <Link to='/landingpage'>Log Out</Link>
+        <Link to='/'>Log Out</Link>
     </div>
     </div>
   )

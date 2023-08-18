@@ -8,8 +8,10 @@ import {
   Box,
 } from "@mui/material";
 import LandingPageStyles from "./LandingPage.css"; // Import the CSS module
+import { useNavigate } from 'react-router-dom'
 
 const LandingPage = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <AppBar className={LandingPageStyles.appBar} position="static">
@@ -20,8 +22,8 @@ const LandingPage = () => {
             alt="Logo"
           />
           <Box className={LandingPageStyles.headerButtons}>
-            <Button color="inherit">Login</Button>
-            <Button color="inherit">Sign Up</Button>
+            <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
+            <Button color="inherit" onClick={() => navigate('/registration')}>Sign Up</Button>
           </Box>
         </Toolbar>
       </AppBar>
