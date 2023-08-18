@@ -1,6 +1,29 @@
 import React from 'react';
 import './Registration.css'
 
+const init = {
+    email: '',
+    password: '',
+    rePassword: '',
+    first: '',
+    last: '',
+    nric: '',
+    address: '',
+    dob: '',
+    contact: ''
+};
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'email':
+            
+            break;
+    
+        default:
+            break;
+    };
+};
+
 function Registration() {
     const handleSubmit =(e) => {
         e.preventDefault();
@@ -50,7 +73,7 @@ function Registration() {
                     <label htmlFor='contact'>Contact Number:</label>
                     <input type='tel' id='contact' />
                 </div>
-                <button type='submit'>Submit</button>
+                <button type='submit'>Register</button>
             </form>
         </div>
     );
