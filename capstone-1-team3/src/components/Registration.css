@@ -18,15 +18,17 @@
     max-width: 750px;
     background-color: #33415C;
     border-radius: 10px;
-    padding: 40px; /* Reduce padding for more compact spacing */
+    padding: 20px; /* Reduce padding for more compact spacing */
     color: #fff;
     text-align: left;
+    margin-top: 20px; /* Added margin for separation from title */
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .input-group {
     display: flex;
     align-items: center;
-    margin-bottom: 10px; /* Increase margin for more spacing between lines */
+    margin-bottom: 15px; /* Increase margin for more spacing between lines */
 }
 
 .input-group label {
@@ -46,7 +48,7 @@
 .container input[type="tel"] {
     flex: 1;
     padding: 12px; /* Adjust padding for more spacious input boxes */
-    margin-left: 1px; /* Add margin for spacing between label and input */
+    margin-left: 2px; /* Add margin for spacing between label and input */
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -60,5 +62,5 @@ button {
     border-radius: 4px;
     cursor: pointer;
     display: block;
-    margin: 0 auto; /* Center the button horizontally */
+    margin: 10px auto; /* Center the button horizontally */
 }
