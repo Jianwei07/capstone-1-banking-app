@@ -6,7 +6,7 @@ import { FaDesktop, FaHeart, FaCog } from "react-icons/fa";
 
 const About = () => {
   return (
-    <Grid background="#152840" style={{ padding: "128px 25px" }} id="about">
+    <Grid background="#152840" style={{ padding: "128px 25px", height: "100vh" }} id="about">
       <Typography variant="h3" align="left" color="white" gutterBottom>
         Evolve your wallet efficiency with InnovPay competitive exchange rates
         and Interest API

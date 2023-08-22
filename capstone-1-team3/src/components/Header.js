@@ -10,6 +10,13 @@ const Header = (props) => {
   const { isLoggedIn, setIsLoggedIn } = props;
   const navigate = useNavigate();
 
+  const handleScrollToComponent = (id) => {
+    const componentRoot = document.getElementById(id);
+    if (componentRoot) {
+        componentRoot.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
   return (
     <AppBar position="static" sx={{ backgroundColor: "#2D2D2D" }}>
       <Toolbar
@@ -48,14 +55,14 @@ const Header = (props) => {
         >
           <Button
             color="inherit"
-            onClick={() => navigate("/capstone-1-banking-app/about")}
+            onClick={() => handleScrollToComponent('about')}
             sx={{ color: "#F8F3A3", fontWeight: "bold", margin: "0 10px" }}
           >
             Key Features
           </Button>
           <Button
             color="inherit"
-            onClick={() => navigate("/capstone-1-banking-app/contact")}
+            onClick={() => handleScrollToComponent('contact')}
             sx={{ color: "#C9EEF2", fontWeight: "bold", margin: "0 10px" }}
           >
             Contact Us
