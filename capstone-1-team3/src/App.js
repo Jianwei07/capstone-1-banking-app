@@ -140,7 +140,6 @@ const App = () => {
                   }
                 />
               </Routes>
-              <Contact />
               <Footer />
             </Router>
           </div>
