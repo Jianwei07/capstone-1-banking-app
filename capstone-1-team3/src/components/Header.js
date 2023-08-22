@@ -83,7 +83,7 @@ const Header = (props) => {
             color="inherit"
             onClick={() => {
               navigate("/");
-              setIsLoggedIn(false)
+              setIsLoggedIn(false);
               alert("Thank you for banking with us! You are now logged out");
             }}
             sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
