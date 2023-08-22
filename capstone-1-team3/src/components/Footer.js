@@ -24,10 +24,10 @@ const Footer = () => {
         color: "white",
         padding: "64px 0",
         textAlign: "center",
-        // position: "absolute",
-        // left: 0,
-        // bottom: 0,
-        // right: 0,
+        position: "absolute",
+        left: 0,
+        bottom: 0,
+        right: 0,
       }}
     >
       <Link
