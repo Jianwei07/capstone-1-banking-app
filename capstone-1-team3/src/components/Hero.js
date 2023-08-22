@@ -90,10 +90,10 @@ const Hero = () => {
               OPEN AN ACCOUNT
             </Button>
             <Button
-              onClick={() => {
-                window.location.href =
-                  "https://www.x-rates.com/table/?from=USD&amount=1";
-              }}
+              component="a"
+              href="https://www.x-rates.com/table/?from=USD&amount=1"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 borderRadius: "15px",
                 backgroundColor: "white",
@@ -104,10 +104,10 @@ const Hero = () => {
                 height: "67px",
                 margin: "0 0 10px 10px",
                 "&:hover": {
-                  backgroundColor: "white", // Keep the same background color on hover
+                  backgroundColor: "white",
                 },
                 "&:focus": {
-                  outline: "none", // Remove the default focus outline
+                  outline: "none",
                 },
               }}
             >
