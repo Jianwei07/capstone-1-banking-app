@@ -14,9 +14,12 @@ const Hero = () => {
     <Box>
       <Grid
         container
-        spacing={0.5}
+        spacing={0.2}
         padding="60px 120px 10px 20px"
-        sx={{ backgroundColor: "#2D2D2D", minHeight: "100vh" }}
+        sx={{
+          backgroundColor: "#2D2D2D",
+          minHeight: "100vh",
+        }}
         id="Hero"
       >
         {/* Left Content */}
@@ -24,10 +27,11 @@ const Hero = () => {
           item
           xs={12}
           md={6}
+          sm={6}
           sx={{
             display: "flex",
-            flexDirection: "column",
             justifyContent: "space-between",
+            flexDirection: "column",
           }}
         >
           <div>
@@ -111,25 +115,88 @@ const Hero = () => {
             </Button>
 
             {/* icons to preview features */}
-            <Grid container spacing={3} justifyContent="left">
-              <Grid item xs={12} sm={4} md={4}>
-                <CurrencyExchangeIcon size={640} color="#e3f2fd" />
-                <Typography color="white" variant="h6" gutterBottom>
+            <Grid
+              container
+              spacing={3}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                flexDirection: "row",
+              }}
+              padding="60px 120px 10px 20px"
+            >
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                md={4}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center", // Center the text horizontally
+                }}
+              >
+                <CurrencyExchangeIcon
+                  sx={{ fontSize: 50, color: "#e3f2fd", marginBottom: "8px" }}
+                />
+                <Typography
+                  fontSize="16px"
+                  color="white"
+                  variant="h6"
+                  gutterBottom
+                >
                   Competitive Exchange Rates (42 Currencies)
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={4} md={4}>
-                <AccountBalanceWalletIcon size={640} color="#e3f2fd" />
-                <Typography color="white" variant="h6" gutterBottom>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                md={4}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center", // Center the text horizontally
+                }}
+              >
+                <AccountBalanceWalletIcon
+                  sx={{ fontSize: 50, color: "#e3f2fd", marginBottom: "8px" }}
+                />
+                <Typography
+                  fontSize="16px"
+                  color="white"
+                  variant="h6"
+                  gutterBottom
+                >
                   Secure Multi-Currency Wallet
                 </Typography>
               </Grid>
-              <Grid item xs={12} sm={4} md={4}>
-                <SavingsIcon size={640} color="#e3f2fd" />
-                <Typography color="white" variant="h6" gutterBottom>
+              <Grid
+                item
+                xs={12}
+                sm={4}
+                md={4}
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center", // Center the text horizontally
+                }}
+              >
+                <SavingsIcon
+                  sx={{ fontSize: 50, color: "#e3f2fd", marginBottom: "8px" }}
+                />
+                <Typography fontSize="16px" color="white" variant="h6">
                   Earn 3.28% Interest
                 </Typography>
-                <Typography color="#white" variant="h10" gutterBottom>
+                <Typography
+                  fontSize="10px"
+                  color="white"
+                  variant="h6"
+                  gutterBottom
+                >
                   T&C applies*
                 </Typography>
               </Grid>
@@ -143,13 +210,19 @@ const Hero = () => {
           item
           xs={12}
           md={6}
+          sm={6}
           sx={{
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
           }}
         >
-          <img src={iPhone} width="65%" alt="iPhone" />
+          <img
+            src={iPhone}
+            width="70%"
+            alt="iPhone"
+            style={{ maxWidth: "100%", height: "auto" }}
+          />
         </Grid>
       </Grid>
     </Box>
