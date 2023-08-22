@@ -106,7 +106,9 @@ const App = () => {
         <div className="main-content">
           <div className="animate__animated animate__fadeIn content-container">
             <Router>
-              <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+              <div className="header">
+                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+              </div>
               <div className='content-component'>
               <Routes>
                 <Route path="/" element={<NavigateToHome />} />

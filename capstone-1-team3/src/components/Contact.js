@@ -20,10 +20,11 @@ function Contact() {
 
     return (
         <main
+            id='contact'
             style={{
                 backgroundColor: '#C2A45F',
                 color: 'black',
-                minHeight: '80vh',
+                minHeight: '100vh',
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
