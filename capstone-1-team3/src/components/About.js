@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import forex from "../style/fx.png";
@@ -7,7 +6,7 @@ import { FaDesktop, FaHeart, FaCog } from "react-icons/fa";
 
 const About = () => {
   return (
-    <Container color="#152840" style={{ padding: "128px 16px" }} id="about">
+    <Grid background="#152840" style={{ padding: "128px 25px" }} id="about">
       <Typography variant="h3" align="left" color="white" gutterBottom>
         Evolve your wallet efficiency with InnovPay competitive exchange rates
         and Interest API
@@ -71,7 +70,7 @@ const About = () => {
           </Typography>
         </Grid>
       </Grid>
-    </Container>
+    </Grid>
   );
 };
 
