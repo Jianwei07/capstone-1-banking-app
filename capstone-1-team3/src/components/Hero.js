@@ -16,7 +16,7 @@ const Hero = () => {
         container
         spacing={0.5}
         padding="60px 120px 10px 20px"
-        sx={{ backgroundColor: "#2D2D2D" }}
+        sx={{ backgroundColor: "#2D2D2D", minHeight: "100vh" }}
         id="Hero"
       >
         {/* Left Content */}
