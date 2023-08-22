@@ -11,6 +11,7 @@ import About from "../src/components/About";
 import Footer from "../src/components/Footer";
 import NavigateToHome from "./components/NavigateToHome";
 import Hero from './components/Hero'
+import Contact from "./components/Contact";
 
 const App = () => {
   // Setup Loading
@@ -105,16 +106,17 @@ const App = () => {
         <div className="main-content">
           <div className="hello animate__animated animate__fadeIn content-container">
             <Router>
-              <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+              <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <div className='content-component'>
-              <Routes>
-                <Route path="/" element={<NavigateToHome />} />
-                <Route path="/capstone-1-banking-app" element={
-                <>
-                <Hero />
-                <About />
-                </>
-                } />
+                <Routes>
+                  <Route path="/" element={<NavigateToHome />} />
+                  <Route path="/capstone-1-banking-app" element={
+                    <>
+                      <Hero />
+                      <About />
+                      <Contact />
+                    </>
+                  } />
                 <Route
                   path="/login"
                   element={
