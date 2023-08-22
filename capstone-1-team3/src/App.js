@@ -24,7 +24,6 @@ const App = () => {
   // Setup Profile
   const [profileList, setProfileList] = useState({
     "sample@gmail.com": {
-      email: "sample@gmail.com",
       password: "123",
       fName: "Tom",
       lName: "Tan",
