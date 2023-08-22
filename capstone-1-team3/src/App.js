@@ -11,7 +11,6 @@ import About from "../src/components/About";
 import Footer from "../src/components/Footer";
 import NavigateToHome from "./components/NavigateToHome";
 import Hero from "./components/Hero";
-import Hero from './components/Hero'
 import Contact from "./components/Contact";
 
 const App = () => {
@@ -115,6 +114,7 @@ const App = () => {
                 <>
                 <Hero />
                 <About />
+                <Contact />
                 </>
                 } />
                 <Route
