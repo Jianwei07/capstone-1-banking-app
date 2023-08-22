@@ -103,9 +103,10 @@ const App = () => {
         </div>
       ) : (
         <div className="main-content">
-          <div className="hello animate__animated animate__fadeIn">
+          <div className="hello animate__animated animate__fadeIn content-container">
             <Router>
               <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+              <div className='content-component'>
               <Routes>
                 <Route path="/" element={<NavigateToHome />} />
                 <Route path="/capstone-1-banking-app" element={
@@ -138,6 +139,7 @@ const App = () => {
                   }
                 />
               </Routes>
+              </div>
               <Footer />
             </Router>
           </div>
