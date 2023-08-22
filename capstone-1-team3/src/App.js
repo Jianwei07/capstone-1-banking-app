@@ -11,6 +11,7 @@ import About from "../src/components/About";
 import Footer from "../src/components/Footer";
 import NavigateToHome from "./components/NavigateToHome";
 import Hero from './components/Hero'
+import Contact from "./components/Contact";
 
 const App = () => {
   // Setup Loading
@@ -111,9 +112,10 @@ const App = () => {
                 <Route path="/capstone-1-banking-app" element={
                 <>
                 <Hero />
-                <About />
                 </>
                 } />
+                <Route path="/capstone-1-banking-app/about" element={<About />} />
+                <Route path="/capstone-1-banking-app/contact" element={<Contact />} />
                 <Route
                   path="/login"
                   element={
@@ -138,6 +140,7 @@ const App = () => {
                   }
                 />
               </Routes>
+              <Contact />
               <Footer />
             </Router>
           </div>
