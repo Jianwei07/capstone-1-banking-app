@@ -15,7 +15,7 @@ const Hero = () => {
       <Grid
         container
         spacing={0.2}
-        padding="60px 120px 10px 20px"
+        padding="60px 20px 10px 20px"
         sx={{
           backgroundColor: "#2D2D2D",
           minHeight: "100vh",
@@ -27,7 +27,7 @@ const Hero = () => {
           item
           xs={12}
           md={6}
-          sm={6}
+          sm={12}
           sx={{
             display: "flex",
             justifyContent: "space-between",
@@ -210,7 +210,7 @@ const Hero = () => {
           item
           xs={12}
           md={6}
-          sm={6}
+          sm={12}
           sx={{
             display: "flex",
             justifyContent: "flex-end",
