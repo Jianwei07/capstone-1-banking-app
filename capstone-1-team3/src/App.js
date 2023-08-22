@@ -103,7 +103,7 @@ const App = () => {
         </div>
       ) : (
         <div className="main-content">
-          <div className="hello animate__animated animate__fadeIn">
+          <div className="hello animate__animated animate__fadeIn content-container">
             <Router>
               <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               <Routes>
@@ -113,9 +113,16 @@ const App = () => {
                   element={
                     <>
                       <Hero />
-                      <About />
                     </>
                   }
+                />
+                <Route
+                  path="/capstone-1-banking-app/about"
+                  element={<About />}
+                />
+                <Route
+                  path="/capstone-1-banking-app/contact"
+                  element={<Contact />}
                 />
                 <Route
                   path="/login"
