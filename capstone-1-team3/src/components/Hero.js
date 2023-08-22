@@ -42,7 +42,7 @@ const Hero = () => {
                 marginBottom: "10px",
               }}
             >
-              Bringing Borders Closer with{""}
+              Bringing Borders Closer with
               <span style={{ color: "#F8F3A3" }}> Innov</span>Pay
             </Typography>
             <Typography
@@ -65,7 +65,6 @@ const Hero = () => {
               financial horizons.
             </Typography>
             <Button
-              color="inherit"
               onClick={() => navigate("/registration")}
               sx={{
                 borderRadius: "15px",
@@ -76,12 +75,17 @@ const Hero = () => {
                 width: "194px",
                 height: "67px",
                 margin: "0 0 10px 10px",
+                "&:hover": {
+                  backgroundColor: "#152840", // Keep the same background color on hover
+                },
+                "&:focus": {
+                  outline: "none", // Remove the default focus outline
+                },
               }}
             >
               OPEN AN ACCOUNT
             </Button>
             <Button
-              color="inherit"
               onClick={() => {
                 window.location.href =
                   "https://www.x-rates.com/table/?from=USD&amount=1";
@@ -95,10 +99,17 @@ const Hero = () => {
                 width: "194px",
                 height: "67px",
                 margin: "0 0 10px 10px",
+                "&:hover": {
+                  backgroundColor: "white", // Keep the same background color on hover
+                },
+                "&:focus": {
+                  outline: "none", // Remove the default focus outline
+                },
               }}
             >
               EXCHANGE RATES
             </Button>
+
             {/* icons to preview features */}
             <Grid container spacing={3} justifyContent="left">
               <Grid item xs={12} sm={4} md={4}>
