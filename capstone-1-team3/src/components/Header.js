@@ -13,9 +13,9 @@ const Header = (props) => {
   const handleScrollToComponent = (id) => {
     const componentRoot = document.getElementById(id);
     if (componentRoot) {
-        componentRoot.scrollIntoView({ behavior: 'smooth' });
+      componentRoot.scrollIntoView({ behavior: "smooth" });
     }
-}
+  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "#2D2D2D" }}>
@@ -31,7 +31,10 @@ const Header = (props) => {
           <Typography
             variant="h6"
             style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
-            onClick={() => navigate("/capstone-1-banking-app")}
+            onClick={() => {
+              navigate("/capstone-1-banking-app");
+              handleScrollToComponent("top");
+            }}
             sx={{
               color: "white",
               fontWeight: "bold",
@@ -42,6 +45,7 @@ const Header = (props) => {
               alt="Logo"
               width="50px"
               style={{ marginRight: "8px" }}
+              id="top"
             />
             InnovPay
           </Typography>
@@ -55,14 +59,14 @@ const Header = (props) => {
         >
           <Button
             color="inherit"
-            onClick={() => handleScrollToComponent('about')}
+            onClick={() => handleScrollToComponent("about")}
             sx={{ color: "#F8F3A3", fontWeight: "bold", margin: "0 10px" }}
           >
             Key Features
           </Button>
           <Button
             color="inherit"
-            onClick={() => handleScrollToComponent('contact')}
+            onClick={() => handleScrollToComponent("contact")}
             sx={{ color: "#C9EEF2", fontWeight: "bold", margin: "0 10px" }}
           >
             Contact Us
@@ -90,7 +94,7 @@ const Header = (props) => {
             color="inherit"
             onClick={() => {
               navigate("/");
-              setIsLoggedIn(false)
+              setIsLoggedIn(false);
               alert("Thank you for banking with us! You are now logged out");
             }}
             sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}

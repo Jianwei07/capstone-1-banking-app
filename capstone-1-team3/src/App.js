@@ -103,7 +103,7 @@ const App = () => {
           </div>
         </div>
       ) : (
-        <div className="main-content">
+        <div className="main-content" id="top">
           <div className="animate__animated animate__fadeIn content-container">
             <Router>
               <div className="header">
