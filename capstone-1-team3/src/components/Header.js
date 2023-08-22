@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -8,14 +8,17 @@ import logo from "../style/favicon.ico";
 
 const Header = (props) => {
   const { isLoggedIn, setIsLoggedIn } = props;
+  const [scrollTarget, setScrollTarget] = useState("");
   const navigate = useNavigate();
-
-  const handleScrollToComponent = (id) => {
-    const componentRoot = document.getElementById(id);
-    if (componentRoot) {
-      componentRoot.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    if (scrollTarget) {
+      const targetElement = document.getElementById(scrollTarget);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+      setScrollTarget(null); // Clear the target so we don't keep trying to scroll on subsequent renders
     }
-  };
+  }, [scrollTarget]);
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "#2D2D2D" }}>
@@ -33,7 +36,7 @@ const Header = (props) => {
             style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
             onClick={() => {
               navigate("/capstone-1-banking-app");
-              handleScrollToComponent("top");
+              setScrollTarget("top");
             }}
             sx={{
               color: "white",
@@ -45,7 +48,6 @@ const Header = (props) => {
               alt="Logo"
               width="50px"
               style={{ marginRight: "8px" }}
-              id="top"
             />
             InnovPay
           </Typography>
@@ -59,14 +61,20 @@ const Header = (props) => {
         >
           <Button
             color="inherit"
-            onClick={() => handleScrollToComponent("about")}
+            onClick={() => {
+              navigate("/capstone-1-banking-app");
+              setScrollTarget("about");
+            }}
             sx={{ color: "#F8F3A3", fontWeight: "bold", margin: "0 10px" }}
           >
             Key Features
           </Button>
           <Button
             color="inherit"
-            onClick={() => handleScrollToComponent("contact")}
+            onClick={() => {
+              navigate("/capstone-1-banking-app");
+              setScrollTarget("contact");
+            }}
             sx={{ color: "#C9EEF2", fontWeight: "bold", margin: "0 10px" }}
           >
             Contact Us
