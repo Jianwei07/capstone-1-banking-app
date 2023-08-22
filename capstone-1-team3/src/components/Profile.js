@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../style/Profile.css';
 
 export function Profile(props) {
-    const { currentProfile, handleProfileUpdate } = props;
+    const navigate = useNavigate()
+    const { currentProfile, handleProfileUpdate, setIsLoggedIn } = props;
     const [inputProfile, setInputProfile] = useState(currentProfile); //{ email:[currentEmail], profile: profileList[currentEmail] }
 
     const handleInput = (e) => {
@@ -17,6 +18,10 @@ export function Profile(props) {
         handleProfileUpdate(inputProfile);
     };
 
+    const handleLogOut = () =>{
+        setIsLoggedIn(false)
+        navigate('/')
+    }
     return (
         <div className="profile-page">
             <form className="profile-form" onSubmit={handleSubmit}>
@@ -59,13 +64,10 @@ export function Profile(props) {
                 </div>
                 <div className='buttons'>
                     <button type="submit" onClick={handleSubmit}>Update</button>
-                    <button><Link to="/">Log Out</Link></button>
+                    <button onClick={handleLogOut}>Log Out</button>
                 </div>
 
             </form>
-            {/* <div className="logout-link">
-                
-            </div> */}
         </div>
     );
 }

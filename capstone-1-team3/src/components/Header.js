@@ -6,7 +6,8 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import logo from "../style/favicon.ico";
 
-const Header = () => {
+const Header = (props) => {
+  const { isLoggedIn, setIsLoggedIn } = props;
   const navigate = useNavigate();
 
   return (
@@ -60,22 +61,36 @@ const Header = () => {
             Contact Us
           </Button>
         </div>
-        <div>
+        {!isLoggedIn ? (
+          <div>
+            <Button
+              color="inherit"
+              onClick={() => navigate("/login")}
+              sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
+            >
+              Login
+            </Button>
+            <Button
+              color="inherit"
+              onClick={() => navigate("/registration")}
+              sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
+            >
+              Sign Up
+            </Button>
+          </div>
+        ) : (
           <Button
             color="inherit"
-            onClick={() => navigate("/login")}
+            onClick={() => {
+              navigate("/");
+              setIsLoggedIn(false)
+              alert("Thank you for banking with us! You are now logged out");
+            }}
             sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
           >
-            Login
+            Log Out
           </Button>
-          <Button
-            color="inherit"
-            onClick={() => navigate("/registration")}
-            sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
-          >
-            Sign Up
-          </Button>
-        </div>
+        )}
       </Toolbar>
     </AppBar>
   );
