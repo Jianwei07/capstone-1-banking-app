@@ -9,6 +9,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "../src/components/Header";
 import About from "../src/components/About";
 import Footer from "../src/components/Footer";
+import NavigateToHome from "./components/NavigateToHome";
+import Hero from "./components/Hero";
+import Contact from "./components/Contact";
 
 const App = () => {
   // Setup Loading
@@ -24,7 +27,6 @@ const App = () => {
   // Setup Profile
   const [profileList, setProfileList] = useState({
     "sample@gmail.com": {
-      email: "sample@gmail.com",
       password: "123",
       fName: "Tom",
       lName: "Tan",
@@ -35,6 +37,9 @@ const App = () => {
     },
   });
   const [currentProfile, setCurrentProfile] = useState({});
+
+  //Check login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // //Retrieve any initial accounts stored in local storage
   useEffect(() => {
@@ -86,6 +91,7 @@ const App = () => {
       email: [currentEmail],
       profile: profileList[currentEmail],
     });
+    setIsLoggedIn(true);
   };
 
   return (
@@ -97,35 +103,50 @@ const App = () => {
           </div>
         </div>
       ) : (
-        <div className="main-content">
-          <div className="hello animate__animated animate__fadeIn">
+        <div className="main-content" id="top">
+          <div className="animate__animated animate__fadeIn content-container">
             <Router>
-              <Header />
-              <Routes>
-                <Route path="/capstone-1-banking-app" element={<About />} />
-                <Route
-                  path="/login"
-                  element={
-                    <SignIn
-                      profileList={profileList}
-                      handleSignInSuccess={handleSignInSuccess}
-                    />
-                  }
-                />
-                <Route
-                  path="/registration"
-                  element={<Registration handleRegister={handleRegister} />}
-                />
-                <Route
-                  path="/profile"
-                  element={
-                    <Profile
-                      currentProfile={currentProfile}
-                      handleProfileUpdate={handleProfileUpdate}
-                    />
-                  }
-                />
-              </Routes>
+              <div className="header">
+                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+              </div>
+              <div className="content-component">
+                <Routes>
+                  <Route path="/" element={<NavigateToHome />} />
+                  <Route
+                    path="/capstone-1-banking-app"
+                    element={
+                      <>
+                        <Hero />
+                        <About />
+                        <Contact />
+                      </>
+                    }
+                  />
+                  <Route
+                    path="/login"
+                    element={
+                      <SignIn
+                        profileList={profileList}
+                        handleSignInSuccess={handleSignInSuccess}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/registration"
+                    element={<Registration handleRegister={handleRegister} />}
+                  />
+                  <Route
+                    path="/profile"
+                    element={
+                      <Profile
+                        currentProfile={currentProfile}
+                        handleProfileUpdate={handleProfileUpdate}
+                        setIsLoggedIn={setIsLoggedIn}
+                      />
+                    }
+                  />
+                </Routes>
+              </div>
               <Footer />
             </Router>
           </div>
