@@ -10,6 +10,7 @@ import Header from "../src/components/Header";
 import About from "../src/components/About";
 import Footer from "../src/components/Footer";
 import NavigateToHome from "./components/NavigateToHome";
+import Hero from './components/Hero'
 
 const App = () => {
   // Setup Loading
@@ -107,7 +108,12 @@ const App = () => {
               <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
               <Routes>
                 <Route path="/" element={<NavigateToHome />} />
-                <Route path="/capstone-1-banking-app" element={<About />} />
+                <Route path="/capstone-1-banking-app" element={
+                <>
+                <Hero />
+                <About />
+                </>
+                } />
                 <Route
                   path="/login"
                   element={
