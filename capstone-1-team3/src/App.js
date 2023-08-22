@@ -103,41 +103,43 @@ const App = () => {
         </div>
       ) : (
         <div className="main-content">
-          <div className="hello animate__animated animate__fadeIn">
+          <div className="hello animate__animated animate__fadeIn content-container">
             <Router>
               <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-              <Routes>
-                <Route path="/" element={<NavigateToHome />} />
-                <Route path="/capstone-1-banking-app" element={
-                <>
-                <Hero />
-                <About />
-                </>
-                } />
-                <Route
-                  path="/login"
-                  element={
-                    <SignIn
-                      profileList={profileList}
-                      handleSignInSuccess={handleSignInSuccess}
-                    />
-                  }
-                />
-                <Route
-                  path="/registration"
-                  element={<Registration handleRegister={handleRegister} />}
-                />
-                <Route
-                  path="/profile"
-                  element={
-                    <Profile
-                      currentProfile={currentProfile}
-                      handleProfileUpdate={handleProfileUpdate}
-                      setIsLoggedIn={setIsLoggedIn}
-                    />
-                  }
-                />
-              </Routes>
+              <div className='content-component'>
+                <Routes >
+                  <Route path="/" element={<NavigateToHome />} />
+                  <Route path="/capstone-1-banking-app" element={
+                  <>
+                  <Hero />
+                  <About />
+                  </>
+                  } />
+                  <Route
+                    path="/login"
+                    element={
+                      <SignIn
+                        profileList={profileList}
+                        handleSignInSuccess={handleSignInSuccess}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/registration"
+                    element={<Registration handleRegister={handleRegister} />}
+                  />
+                  <Route
+                    path="/profile"
+                    element={
+                      <Profile
+                        currentProfile={currentProfile}
+                        handleProfileUpdate={handleProfileUpdate}
+                        setIsLoggedIn={setIsLoggedIn}
+                      />
+                    }
+                  />
+                </Routes>
+              </div>
               <Footer />
             </Router>
           </div>
