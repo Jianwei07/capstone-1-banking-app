@@ -19,8 +19,9 @@ export function Profile(props) {
     };
 
     const handleLogOut = () =>{
+        navigate("/");
         setIsLoggedIn(false)
-        navigate('/')
+        alert("Thank you for banking with us! You are now logged out");
     }
     return (
         <div className="profile-page">
