@@ -1,125 +1,119 @@
-import React, {useState, useReducer} from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import {useForm} from 'react-hook-form';
 import '../style/Registration.css'
 
-const init = {
-    email: '',
-    password: '',
-    rePassword: '',
-    first: '',
-    last: '',
-    nric: '',
-    address: '',
-    dob: '',
-    contact: ''
-};
-
-const reducer = (state, action) => {
-    switch (action.type) {
-        case 'email':
-            return {...state, email: action.value};
-        case 'password':
-            return {...state, password: action.value};
-        case 'rePassword':
-            return {...state, rePassword: action.value};
-        case 'first':
-            return {...state, first: action.value};
-        case 'last':
-            return {...state, last: action.value};
-        case 'nric':
-            return {...state, nric: action.value};
-        case 'address':
-            return {...state, address: action.value};
-        case 'dob':
-            return {...state, dob: action.value};
-        case 'contact':
-            return {...state, contact: action.value};
-        case 'success':
-            return init;
-    
-        default:
-            return state;
-    };
-};
-
 function Registration(props) {
-    const [profile, dispatch] = useReducer(reducer, init);
-    const [passwordMatch, setPasswordMatch] = useState(true);
     const navigate = useNavigate();
+    const {register, getValues, formState: {errors}, reset, handleSubmit} = useForm();
 
-    const handleChange = (e) => {
-        dispatch({
-            type: e.target.id,
-            value: e.target.value
-        });
+    const validation = {
+        email: {
+            required: {
+                value: true,
+                message: 'Email is required.'
+            }
+        },
+        password: {
+            required: {
+                value: true,
+                message: 'Password is required.'
+            },
+            pattern: {
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                message: 'Password must have at least 8 characters. It must contain at least a number, a lowercase letter and an uppercase letter.'
+            }
+        },
+        rePassword: {
+            required: {
+                value: true,
+                message: 'Re-enter your password.'
+            },
+            validate: (value) => value === getValues('password') || 'This does not match the password that you have entered.'
+        },
+        first: {
+            required: false
+        },
+        last: {
+            required: false
+        },
+        nric: {
+            required: false
+        },
+        address: {
+            required: false
+        },
+        dob: {
+            required: false
+        },
+        contact: {
+            required: false
+        }
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (profile.password === profile.rePassword) {
-            setPasswordMatch(true);
-            props.handleRegister(profile);
-            dispatch({type: 'success'});
-            alert('Your registration is successful! You will be redirected to login now.');
-            navigate('/login');
-        } else {
-            setPasswordMatch(false);
-            return;
-        }
+    const onSubmit = (data) => {
+        props.handleRegister(data);
+        reset();
+        alert('Your registration is successful! You will be redirected to login now.');
+        navigate('/login');
     };
 
     return (
         <div className='registration'>
-            <form className='container' onSubmit={handleSubmit}>
+            <form className='container' onSubmit={handleSubmit(onSubmit)}>
                 <h1 className='title'>Register for a Bank Account</h1>
                 <div className='input-group'>
                     <label htmlFor='email'>Email:</label>
-                    <input type='email' id='email' value={profile.email} onChange={handleChange} />
+                    <input type='email' id='email' {...register('email', validation.email)} />
+                    <>{errors.email && <p>{errors.email?.message}</p>}</>
                 </div>
                 <div className='input-group'>
                     <label htmlFor='password'>Password:</label>
-                    <input type='password' id='password' value={profile.password} onChange={handleChange} />
+                    <input type='password' id='password' {...register('password', validation.password)} />
+                    <>{errors.password && <p>{errors.password?.message}</p>}</>
                 </div>
                 <div className='input-group'>
                     <label htmlFor='rePassword'>Re-enter Password:</label>
-                    <input type='password' id='rePassword' value={profile.rePassword} onChange={handleChange} />
+                    <input type='password' id='rePassword' {...register('rePassword', validation.rePassword)} />
+                    <>{errors.rePassword && <p>{errors.rePassword?.message}</p>}</>
                 </div>
-                <>{passwordMatch ? null : <p>This does not match the password that you have entered.</p>}</>
                 <div className='name-group'>
                     <div className='input-group'>
                         <label htmlFor='first'>First Name:</label>
-                        <input type='text' id='first' value={profile.first} onChange={handleChange} />
+                        <input type='text' id='first' {...register('first', validation.first)} />
+                        <>{errors.first && <p>{errors.first?.message}</p>}</>
                     </div>
                     <div className='input-group'>
                         <label htmlFor='last'>Last Name:</label>
-                        <input type='text' id='last' value={profile.last} onChange={handleChange} />
+                        <input type='text' id='last' {...register('last', validation.last)} />
+                        <>{errors.last && <p>{errors.last?.message}</p>}</>
                     </div>
                 </div>
                 <div className='input-group'>
                     <label htmlFor='nric'>NRIC:</label>
-                    <input type='text' id='nric' value={profile.nric} onChange={handleChange} />
+                    <input type='text' id='nric' {...register('nric', validation.nric)} />
+                    <>{errors.nric && <p>{errors.nric?.message}</p>}</>
                 </div>
                 <div className='input-group'>
                     <label htmlFor='address'>Address:</label>
-                    <input type='text' id='address' value={profile.address} onChange={handleChange} />
+                    <input type='text' id='address' {...register('address', validation.address)} />
+                    <>{errors.address && <p>{errors.address?.message}</p>}</>
                 </div>
                 <div className='input-group'>
                     <label htmlFor='dob'>Date of Birth:</label>
-                    <input type='date' id='dob' value={profile.dob} onChange={handleChange} />
+                    <input type='date' id='dob' {...register('dob', validation.dob)} />
+                    <>{errors.dob && <p>{errors.dob?.message}</p>}</>
                 </div>
                 <div className='input-group'>
                     <label htmlFor='contact'>Contact Number:</label>
-                    <input type='tel' id='contact' value={profile.contact} onChange={handleChange} />
+                    <input type='tel' id='contact' {...register('contact', validation.contact)} />
+                    <>{errors.contact && <p>{errors.contact?.message}</p>}</>
                 </div>
                 <button type='submit' className='button'>Register</button>
                 <Link to={'/'}>Back to Home</Link>
                 <Link to={'/login'}>Back to Login</Link>
             </form>
-
-            </div>
-            
-
+        </div>
     );
 }
 
