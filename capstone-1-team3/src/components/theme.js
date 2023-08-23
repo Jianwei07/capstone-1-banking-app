@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
-
+  // Customize your theme here
   palette: {
     primary: {
       main: "#2D2D2D", // Grey from Header
@@ -10,10 +10,7 @@ const theme = createTheme({
     deepNavy: "#152840",
     dirtyGold: "#DFCD81",
   },
-  typography: {
-    fontFamily: 'Open Sans'
-  },
-  
+  // Other theme settings
 });
 
 export default theme;
