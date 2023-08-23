@@ -22,50 +22,59 @@ const defaultTheme = createTheme();
 
 export default function SignUp(props) {
   const navigate = useNavigate();
-  const { register, getValues, formState: { errors }, reset, handleSubmit } = useForm();
+  const {
+    register,
+    getValues,
+    formState: { errors },
+    reset,
+    handleSubmit,
+  } = useForm();
 
   const validation = {
     email: {
       required: {
         value: true,
-        message: 'Email is required.'
-      }
+        message: "Email is required.",
+      },
     },
     password: {
       required: {
         value: true,
-        message: 'Password is required.'
+        message: "Password is required.",
       },
       pattern: {
         value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-        message: 'Password must have at least 8 characters. It must contain at least a number, a lowercase letter and an uppercase letter.'
-      }
+        message:
+          "Password must have at least 8 characters. It must contain at least a number, a lowercase letter and an uppercase letter.",
+      },
     },
     rePassword: {
       required: {
         value: true,
-        message: 'Re-enter your password.'
+        message: "Re-enter your password.",
       },
-      validate: (value) => value === getValues('password') || 'This does not match the password that you have entered.'
+      validate: (value) =>
+        value === getValues("password") ||
+        "This does not match the password that you have entered.",
     },
     first: {
-      required: false
+      required: false,
     },
     last: {
-      required: false
+      required: false,
     },
     nric: {
-      required: false
+      required: false,
     },
     address: {
-      required: false
+      required: false,
     },
     dob: {
-      required: false
+      required: false,
     },
     contact: {
-      required: false
-    }
+      required: false,
+    },
   };
 
   const onSubmit = (data) => {
@@ -77,8 +86,10 @@ export default function SignUp(props) {
     // });
     props.handleRegister(data);
     reset();
-    alert('Your registration is successful! You will be redirected to login now.');
-    navigate('/login');
+    alert(
+      "Your registration is successful! You will be redirected to login now."
+    );
+    navigate("/login");
   };
 
   return (
