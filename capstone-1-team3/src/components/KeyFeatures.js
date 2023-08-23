@@ -23,7 +23,7 @@ const KeyFeatures = () => {
 		}}>
 			<Grid
 				container
-				padding="10px 50px"
+				padding="50px 50px"
 				rowSpacing={1}
 				columnSpacing={{ xs: 1, sm: 2, md: 3 }}
 				alignItems="center"
