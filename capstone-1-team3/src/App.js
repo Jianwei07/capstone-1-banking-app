@@ -1,6 +1,5 @@
 import "./style/App.css";
 import loadPic from "./style/load.png";
-import favicon from "./style/favicon.ico";
 import React, { useState, useEffect } from "react";
 import {
   Routes,
@@ -19,93 +18,6 @@ import MuiSignup from "./components/MuiSignUp";
 import MuiFooter from "./components/MuiFooter";
 import GetInTouch from "./components/Get-intouch";
 import { useLayoutEffect } from "react";
-//For ChatBot
-import ChatBot from "react-simple-chatbot";
-import { ThemeProvider } from "styled-components";
-
-const BotRedirect = ({ url, message }) => {
-  return (
-    <div>
-      <a href={url} target="_blank">
-        {message}
-      </a>
-    </div>
-  );
-};
-
-const BotTheme = {
-  background: "#F2F2F2",
-  headerBgColor: "black",
-  headerFontSize: "20px",
-  botBubbleColor: "#2D2D2D",
-  headerFontColor: "white",
-  botFontColor: "white",
-  userBubbleColor: "#DFCD81",
-  userFontColor: "black",
-};
-
-const steps = [
-  {
-    id: "0",
-    message: "Hey Banker!",
-    trigger: "1",
-  },
-  {
-    id: "1",
-    message: "What is your name?",
-    trigger: "2",
-  },
-  {
-    id: "2",
-    user: true,
-    trigger: "3",
-  },
-  {
-    id: "3",
-    message: "Hi {previousValue}, how can I help you?",
-    trigger: "menuOptions", // Use a unique trigger for the next step
-  },
-  {
-    id: "menuOptions",
-    options: [
-      { value: 1, label: "About Us", trigger: "about" },
-      { value: 2, label: "FAQ", trigger: "faq" },
-      { value: 3, label: "Contact Support", trigger: "contact" },
-      { value: 4, label: "Online Application", trigger: "application" },
-    ],
-  },
-  {
-    id: "about",
-    message: "Our bank provides innovative financial solutions...",
-    trigger: "menuOptions",
-  },
-  {
-    id: "faq",
-    message: "Here are some frequently asked questions...",
-    trigger: "menuOptions",
-  },
-  {
-    id: "contact",
-    message:
-      "Please give me a moment, you will be connected to our agent to further assist you.",
-    end: true,
-  },
-  {
-    id: "application",
-    message: "Click the link below to access the application link!",
-    trigger: "applicationLink",
-  },
-  {
-    id: "applicationLink",
-    component: <BotRedirect message="Sign Up Here!" url="/registration" />,
-    trigger: "menuOptions",
-  },
-];
-
-const config = {
-  botAvatar: favicon,
-  floating: true,
-};
 
 const App = () => {
   const Wrapper = ({ children }) => {
@@ -276,9 +188,6 @@ const App = () => {
           </div>
         </div>
       )}
-      <ThemeProvider theme={BotTheme}>
-        <ChatBot headerTitle="Chat with Us" steps={steps} {...config} />
-      </ThemeProvider>
     </div>
   );
 };
