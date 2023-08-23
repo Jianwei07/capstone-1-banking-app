@@ -9,6 +9,9 @@ import {
 } from "@mui/material";
 
 const GetInTouch = () => {
+  const handleLogOut = () => {
+    alert("Thank you for your inquiry!");
+  };
   return (
     <Box
       sx={{
@@ -19,7 +22,7 @@ const GetInTouch = () => {
       justifyContent="center"
       alignItems="center"
       width="100%"
-      padding={{ xs: "0px 20px", md: "0px 100px" }}
+      padding={{ xs: "0px 20px", md: "0px 40px" }}
       bgcolor="#152840"
     >
       <Grid
@@ -146,6 +149,7 @@ const GetInTouch = () => {
               </div>
 
               <Button
+                onClick={handleLogOut}
                 fullWidth
                 variant="contained"
                 sx={{
