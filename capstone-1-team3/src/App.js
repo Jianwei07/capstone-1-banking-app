@@ -134,7 +134,7 @@ const App = () => {
 										// 	profileList={profileList}
 										// 	handleSignInSuccess={handleSignInSuccess}
 										// />
-										<MuiSignInSide />
+										<MuiSignInSide profileList={profileList} handleSignInSuccess={handleSignInSuccess}/>
 									}
 								/>
 								<Route

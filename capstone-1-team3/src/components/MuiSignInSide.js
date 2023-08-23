@@ -51,11 +51,11 @@ export default function SignInSide(props) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const data = new FormData(event.currentTarget);
-		console.log({
-			email: data.get('email'),
-			password: data.get('password'),
-		});
+		// const data = new FormData(event.currentTarget);
+		// console.log({
+		// 	email: data.get('email'),
+		// 	password: data.get('password'),
+		// });
 
 
 		const profileChecker = profileList[loginInput.email] //find and return the profile for the input email
