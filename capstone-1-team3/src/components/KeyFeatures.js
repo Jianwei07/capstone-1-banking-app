@@ -7,32 +7,26 @@ import SavingsIcon from '@mui/icons-material/Savings';
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import SpeedIcon from '@mui/icons-material/Speed';
-import DevicesIcon from '@mui/icons-material/Devices'; 
+import DevicesIcon from '@mui/icons-material/Devices';
 
 const KeyFeatures = () => {
 	return (
-		<main
-            id='contact'
-            style={{
-                backgroundColor: '#2D2D2D',
-                color: 'black',
-                minHeight: '100vh',
-                // display: 'flex',
-                // justifyContent: 'center',
-                // flexDirection: 'column',
-                // alignItems: 'center', // Center horizontally
-                margin: 0,
-                padding: 0,
-                // textAlign: 'center',
-            }}
-        >
-		<Box id="about" sx={{ flexGrow: 1}}>
+
+		<Box id="about"  sx={{
+			backgroundColor: "#2D2D2D",
+			flexGrow: 1,
+			minHeight: '100vh',
+			display: 'flex',
+			justifyContent: 'center',
+			flexDirection: 'column',
+			alignItems: 'center', // Center horizontally
+		}}>
 			<Grid
 				container
 				padding="10px 50px"
 				rowSpacing={1}
 				columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-				sx={{ backgroundColor: "#2D2D2D" }}
+				alignItems="center"
 
 			>
 				<Grid
@@ -89,13 +83,13 @@ const KeyFeatures = () => {
 					}}
 
 				>
-					<CurrencyExchangeIcon sx={{ fontSize: 100, color: "yellow" }}/>
-					<Typography variant="subtitle1"  paragraph color="white">
-					 Competitive Exchange Rates (42 Currencies) 
+					<CurrencyExchangeIcon sx={{ fontSize: 100, color: "yellow" }} />
+					<Typography variant="subtitle1" paragraph color="white">
+						Competitive Exchange Rates (42 Currencies)
 					</Typography>
-					<Typography variant="body1"  paragraph color="pink">
-					Access 42 rates for global transactions, maximizing the value of your currencies.
-					 </Typography>
+					<Typography variant="body1" paragraph color="pink">
+						Access 42 rates for global transactions, maximizing the value of your currencies.
+					</Typography>
 
 
 				</Grid>
@@ -110,13 +104,13 @@ const KeyFeatures = () => {
 					}}
 
 				>
-					<AccountBalanceWalletIcon  sx={{ fontSize: 100 , color: "yellow"}}/>
-					<Typography variant="subtitle1"  paragraph color="white">
-					Secure Multi-Currency Wallet 
+					<AccountBalanceWalletIcon sx={{ fontSize: 100, color: "yellow" }} />
+					<Typography variant="subtitle1" paragraph color="white">
+						Secure Multi-Currency Wallet
 					</Typography>
-					<Typography variant="body1"  paragraph color="pink">
-					Rest easy with InnovPay's state-of-the-art secure MultiCurrency Wallet, protecting your assets and transactions with advanced encryption and robust security measures.
-					 </Typography>
+					<Typography variant="body1" paragraph color="pink">
+						Rest easy with InnovPay's state-of-the-art secure MultiCurrency Wallet, protecting your assets and transactions with advanced encryption and robust security measures.
+					</Typography>
 				</Grid>
 				<Grid
 					item
@@ -129,13 +123,13 @@ const KeyFeatures = () => {
 					}}
 
 				>
-					<SavingsIcon sx={{ fontSize: 100 }}/>
-					<Typography variant="subtitle1"  paragraph color="white">
-					Earn 3.28% Interest T&C applies*  
+					<SavingsIcon sx={{ fontSize: 100 }} />
+					<Typography variant="subtitle1" paragraph color="white">
+						Earn 3.28% Interest T&C applies*
 					</Typography>
-					<Typography variant="body1"  paragraph color="pink">
-					Elevate your financial possibilities through a remarkable 3.28% interest rate, ushering in new avenues of prosperity.
-					 </Typography>
+					<Typography variant="body1" paragraph color="pink">
+						Elevate your financial possibilities through a remarkable 3.28% interest rate, ushering in new avenues of prosperity.
+					</Typography>
 				</Grid>
 				<Grid
 					item
@@ -148,13 +142,13 @@ const KeyFeatures = () => {
 					}}
 
 				>
-					<SpeedIcon sx={{ fontSize: 100 }}/>
-					<Typography variant="subtitle1"  paragraph color="white">
-					Instant Cross-Border Remittances 
+					<SpeedIcon sx={{ fontSize: 100 }} />
+					<Typography variant="subtitle1" paragraph color="white">
+						Instant Cross-Border Remittances
 					</Typography>
-					<Typography variant="body1"  paragraph color="pink">
-					Seamlessly send and receive money across the globe with lightning-fast remittances, simplifying international transactions.
-					 </Typography>
+					<Typography variant="body1" paragraph color="pink">
+						Seamlessly send and receive money across the globe with lightning-fast remittances, simplifying international transactions.
+					</Typography>
 				</Grid>
 				<Grid
 					item
@@ -167,13 +161,13 @@ const KeyFeatures = () => {
 					}}
 
 				>
-					<DevicesIcon sx={{ fontSize: 100 }}/>
-					<Typography variant="subtitle1"  paragraph color="white">
-					AI-Driven Financial Insights
+					<DevicesIcon sx={{ fontSize: 100 }} />
+					<Typography variant="subtitle1" paragraph color="white">
+						AI-Driven Financial Insights
 					</Typography>
-					<Typography variant="body1"  paragraph color="pink">
-					Harness personalized AI insights, gaining valuable perspectives that guide your financial decisions for optimal growth.
-					 </Typography>
+					<Typography variant="body1" paragraph color="pink">
+						Harness personalized AI insights, gaining valuable perspectives that guide your financial decisions for optimal growth.
+					</Typography>
 				</Grid>
 
 
@@ -181,7 +175,7 @@ const KeyFeatures = () => {
 
 
 		</Box>
-		</main>
+
 	);
 };
 
