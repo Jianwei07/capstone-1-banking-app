@@ -34,12 +34,12 @@ function Footer(props) {
 	return (
 		<ThemeProvider theme={theme}>
 
-			<Box component="footer" bgcolor='primary.main' sx={{  py: 6 }}>
+			<Box component="footer" bgcolor='primary.main' sx={{ py: 6 }}>
 				<Grid
 					container
 					columns={9}
-					columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-					sx={{  justifyContent: "center" }}
+					columnSpacing={{ xs: 1, sm: 1, md: 1 }}
+					sx={{ justifyContent: "center" }}
 					alignItems="flex-start"
 				>
 
@@ -47,23 +47,25 @@ function Footer(props) {
 						item
 						xs={3}
 						md={3}
+						sm={3}
 						sx={{
 							display: "flex",
 							justifyContent: "center",
 						}}
 					>
 						<img
-						src={InnovSlogan}
-						alt="InnovSlogan"
-						width="500px"
-						
-            />
+							src={InnovSlogan}
+							alt="InnovSlogan"
+							width="500px"
+
+						/>
 					</Grid>
 
 					<Grid
 						item
 						xs={3}
 						md={3}
+						sm={3}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
@@ -71,35 +73,36 @@ function Footer(props) {
 						}}
 					>
 
-					<Container maxWidth="lg">
-						<Typography variant="body2" align="center" gutterBottom>
-							InnovPay Technology Pte. Ltd. <br />
-							10 Marina Blvd,  <br />
-							Marina Bay Financial  <br />
-							TowerSingapore 018983
-						</Typography>
-						<Typography
-							variant="subtitle1"
-							align="center"
-							color="text.secondary"
-							component="p"
-						>
-							{description}
-						</Typography>
-						<Copyright />
+						<Container maxWidth="lg">
+							<Typography variant="body2" align="center" gutterBottom>
+								InnovPay Technology Pte. Ltd. <br />
+								10 Marina Blvd,  <br />
+								Marina Bay Financial  <br />
+								TowerSingapore 018983
+							</Typography>
+							<Typography
+								variant="subtitle1"
+								align="center"
+								color="text.secondary"
+								component="p"
+							>
+								{description}
+							</Typography>
+							<Copyright />
 
-					</Container>
+						</Container>
 					</Grid>
 
 					<Grid
 						item
 						xs={3}
-						md={3}x
-						paddingRight={30}
+						md={3}
+						sm={3}
+						// paddingRight={30}
 						sx={{
 							display: "flex",
-							justifyContent: "right"
-				
+							justifyContent: "center"
+
 						}}
 					>
 						<InstagramIcon sx={{ fontSize: 80, color: "black" }} />
@@ -110,7 +113,7 @@ function Footer(props) {
 
 				</Grid>
 
-				
+
 			</Box>
 		</ThemeProvider>
 	);
