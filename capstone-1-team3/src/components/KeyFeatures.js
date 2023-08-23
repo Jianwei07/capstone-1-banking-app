@@ -11,7 +11,22 @@ import DevicesIcon from '@mui/icons-material/Devices';
 
 const KeyFeatures = () => {
 	return (
-		<Box id="about" sx={{ flexGrow: 1 }}>
+		<main
+            id='contact'
+            style={{
+                backgroundColor: '#2D2D2D',
+                color: 'black',
+                minHeight: '100vh',
+                // display: 'flex',
+                // justifyContent: 'center',
+                // flexDirection: 'column',
+                // alignItems: 'center', // Center horizontally
+                margin: 0,
+                padding: 0,
+                // textAlign: 'center',
+            }}
+        >
+		<Box id="about" sx={{ flexGrow: 1}}>
 			<Grid
 				container
 				padding="50px 50px"
@@ -166,6 +181,7 @@ const KeyFeatures = () => {
 
 
 		</Box>
+		</main>
 	);
 };
 
