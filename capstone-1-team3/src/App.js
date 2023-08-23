@@ -2,8 +2,8 @@ import "./style/App.css";
 import loadPic from "./style/load.png";
 
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import {Routes, Route, BrowserRouter as Router, useLocation} from 'react-router-dom';
 import NavigateToHome from "./components/NavigateToHome";
 import Profile from "./components/Profile";
 
@@ -15,8 +15,21 @@ import MuiSignInSide from "./components/MuiSignInSide";
 import MuiSignup from "./components/MuiSignUp";
 import MuiFooter from "./components/MuiFooter";
 import GetInTouch from "./components/Get-intouch";
+import {useLayoutEffect} from 'react';
+
+
 
 const App = () => {
+
+  const Wrapper = ({children}) => {
+    const location = useLocation();
+    useLayoutEffect(() => {
+      document.documentElement.scrollTo(0, 0);
+    }, [location.pathname]);
+    return children
+  } 
+
+
   // Setup Loading
   const [loading, setLoading] = useState(false);
 
@@ -111,7 +124,10 @@ const App = () => {
       ) : (
         <div className="main-content" id="top">
           <div className="animate__animated animate__fadeIn content-container">
+          
             <Router>
+            <Wrapper>
+            
               <div className="header">
                 <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
               </div>
@@ -168,6 +184,8 @@ const App = () => {
                 </Routes>
               </div>
               <MuiFooter description="Terms of Use . Privacy Policy" />
+
+              </Wrapper>
             </Router>
           </div>
         </div>
