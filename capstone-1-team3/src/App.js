@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavigateToHome from "./components/NavigateToHome";
 import Profile from "./components/Profile";
 
-// import Contact from "./components/Contact";
+
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import KeyFeatures from "./components/KeyFeatures"
-
+import Contact from "./components/Contact";
 import MuiSignInSide from "./components/MuiSignInSide"
 import MuiSignup from "./components/MuiSignUp"
 import MuiFooter from "./components/MuiFooter";
@@ -122,7 +122,7 @@ const App = () => {
 										<>
 											<Hero />
 											<KeyFeatures />
-											{/* <Contact /> */}
+											<Contact />
 										</>
 									}
 								/>
