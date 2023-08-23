@@ -1,16 +1,17 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import {
+  Grid,
+  Box,
+  Container,
+  Typography,
+  Link,
+  ThemeProvider,
+} from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import Grid from "@mui/material/Grid";
 import InnovSlogan from "../style/InnovSlogan.png";
-import { useNavigate } from "react-router-dom";
 import theme from "./theme";
 
 function Copyright() {
@@ -27,7 +28,7 @@ function Copyright() {
 }
 
 function Footer(props) {
-  const { description, title } = props;
+  const { description } = props;
 
   return (
     <ThemeProvider theme={theme}>
