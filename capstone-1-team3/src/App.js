@@ -108,13 +108,12 @@ const App = () => {
 			) : (
 				<div className="main-content" id="top">
 					<div className="animate__animated animate__fadeIn content-container">
-						{/* hello */}
 						<Router>
 							
 							<div className="header">
 								<Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
 							</div>
-							{/* <div className="content-component"> */}
+							<div className="content-component">
 							<Routes>
 								<Route path="/" element={<NavigateToHome />} />
 								<Route
@@ -156,8 +155,8 @@ const App = () => {
 									}
 								/>
 							</Routes>
+							</div>
 							<MuiFooter description="Terms of Use . Privacy Policy" />
-							{/* </div> */}
 							
 						</Router>
 					</div>
