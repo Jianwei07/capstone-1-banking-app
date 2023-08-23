@@ -6,6 +6,7 @@ const theme = createTheme({
     primary: {
       main: "#2D2D2D", // Grey from Header
     },
+    light:'#F2F2F2',
     gold: "#F8F3A3",
     deepNavy: "#152840",
     dirtyGold: "#DFCD81",

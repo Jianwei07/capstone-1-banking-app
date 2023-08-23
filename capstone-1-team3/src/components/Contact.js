@@ -3,20 +3,12 @@ import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import { Link as RouterLink } from 'react-router-dom';
-import Registration from './notinuse/Registration';
+import theme from "./theme";
+import { useNavigate } from "react-router-dom";
 
 
 function Contact() {
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: '#152840',
-            },
-            secondary: {
-                main: '#F2F2F2',
-            },
-        },
-    });
+    const navigate = useNavigate();
 
     return (
         <main
@@ -54,26 +46,57 @@ function Contact() {
             <br />
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
                 <ThemeProvider theme={theme}>
-                    <RouterLink to="/registration" element={<Registration />}>
-                        <Button
-                            variant='contained'
-                            color='primary'
-                            size='large'
-                            style={{
-                                borderRadius: '18px',
-                                padding: '20px 25px',
-                                fontSize: '1.25rem',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            Open An Account
-                        </Button>
-                    </RouterLink>
+
+
                     <Button
                         variant='contained'
-                        color='secondary'
+                        color='deepNavy'
                         size='large'
-                        style={{ borderRadius: '18px', padding: '20px 25px', fontSize: '1.25rem', fontWeight: ' bolder' }}
+                        onClick={() => navigate("/registration")}
+                        sx={{
+                            // fontSize: '1.25rem',
+                            // padding: '20px 25px',
+                            borderRadius: "15px",
+                            backgroundColor: "deepNavy",
+                            color: "white",
+                            fontFamily: "Open Sans",
+                            fontWeight: "bold",
+                            width: "194px",
+                            height: "67px",
+                            margin: "0 0 10px 10px",
+                            "&:hover": {
+                                backgroundColor: "#deepNavy", // Keep the same background color on hover
+                            },
+                            "&:focus": {
+                                outline: "none", // Remove the default focus outline
+                            },
+                        }}
+                    >
+                        OPEN AN ACCOUNT
+                    </Button>
+
+                    <Button
+                        variant='contained'
+                        color='light'
+                        size='large'
+                        // onClick={() => navigate("/")}
+                        sx={{
+                            borderRadius: "15px",
+                            backgroundColor: "light",
+                            // color: "black",
+                            // fontFamily: "Open Sans",
+                            fontWeight: "bolder",
+                            margin: "0 0 10px 10px",
+                            // width: "194px",
+                            // height: "67px",
+                            
+                            // "&:hover": {
+                            //     backgroundColor: "white",
+                            // },
+                            // "&:focus": {
+                            //     outline: "none",
+                            // },
+                        }}
                     >
                         Get In Touch
                     </Button>
