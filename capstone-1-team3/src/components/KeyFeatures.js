@@ -14,7 +14,7 @@ const KeyFeatures = () => {
 		<Box id="about" sx={{ flexGrow: 1 }}>
 			<Grid
 				container
-				padding="10px 50px"
+				padding="50px 50px"
 				rowSpacing={1}
 				columnSpacing={{ xs: 1, sm: 2, md: 3 }}
 				sx={{ backgroundColor: "#2D2D2D" }}
