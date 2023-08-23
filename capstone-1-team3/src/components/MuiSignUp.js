@@ -38,8 +38,7 @@ export default function SignUp(props) {
       },
       pattern: {
         value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-        message:
-          "Password must have at least 8 characters. It must contain at least a number, a lowercase letter and an uppercase letter.",
+        message: "Password must have at least 8 characters. It must contain at least a number, a lowercase letter and an uppercase letter.",
       },
     },
     rePassword: {
