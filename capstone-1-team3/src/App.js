@@ -141,7 +141,7 @@ const App = () => {
 									path="/registration"
 									element={
 									// <Registration handleRegister={handleRegister} />
-										<MuiSignup />
+										<MuiSignup handleRegister={handleRegister} />
 									}
 
 								/>
