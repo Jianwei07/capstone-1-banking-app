@@ -99,7 +99,7 @@ const KeyFeatures = () => {
             justifyContent: "center",
           }}
         >
-          <CurrencyExchangeIcon sx={{ fontSize: 100, color: "yellow" }} />
+          <CurrencyExchangeIcon sx={{ fontSize: 100, color: "#F8F3A3" }} />
           <Typography variant="subtitle1" paragraph color="white">
             Competitive Exchange Rates (42 Currencies)
           </Typography>
@@ -118,7 +118,7 @@ const KeyFeatures = () => {
             justifyContent: "center",
           }}
         >
-          <AccountBalanceWalletIcon sx={{ fontSize: 100, color: "yellow" }} />
+          <AccountBalanceWalletIcon sx={{ fontSize: 100, color: "#F8F3A3" }} />
           <Typography variant="subtitle1" paragraph color="white">
             Secure Multi-Currency Wallet
           </Typography>
@@ -138,7 +138,7 @@ const KeyFeatures = () => {
             justifyContent: "center",
           }}
         >
-          <SavingsIcon sx={{ fontSize: 100 }} />
+          <SavingsIcon sx={{ fontSize: 100, color: "#F8F3A3" }} />
           <Typography variant="subtitle1" paragraph color="white">
             Earn 3.28% Interest T&C applies*
           </Typography>
@@ -157,7 +157,7 @@ const KeyFeatures = () => {
             justifyContent: "center",
           }}
         >
-          <SpeedIcon sx={{ fontSize: 100 }} />
+          <SpeedIcon sx={{ fontSize: 100, color: "#F8F3A3" }} />
           <Typography variant="subtitle1" paragraph color="white">
             Instant Cross-Border Remittances
           </Typography>
@@ -176,7 +176,7 @@ const KeyFeatures = () => {
             justifyContent: "center",
           }}
         >
-          <DevicesIcon sx={{ fontSize: 100 }} />
+          <DevicesIcon sx={{ fontSize: 100, color: "#F8F3A3" }} />
           <Typography variant="subtitle1" paragraph color="white">
             AI-Driven Financial Insights
           </Typography>
