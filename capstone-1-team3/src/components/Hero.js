@@ -58,7 +58,6 @@ const Hero = () => {
                 fontFamily: "Open Sans",
                 fontWeight: 300,
                 fontSize: "28px",
-                width: "768px",
                 height: "230px",
                 marginBottom: "0px",
               }}
