@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import { Link as RouterLink } from 'react-router-dom';
-import Registration from './Registration';
+import Registration from './notinuse/Registration';
 
 
 function Contact() {
