@@ -22,13 +22,7 @@ const defaultTheme = createTheme();
 
 export default function SignUp(props) {
   const navigate = useNavigate();
-  const {
-    register,
-    getValues,
-    formState: { errors },
-    reset,
-    handleSubmit,
-  } = useForm();
+  const {register, getValues, formState: { errors }, reset, handleSubmit} = useForm();
 
   const validation = {
     email: {
@@ -53,15 +47,19 @@ export default function SignUp(props) {
         value: true,
         message: "Re-enter your password.",
       },
-      validate: (value) =>
-        value === getValues("password") ||
-        "This does not match the password that you have entered.",
+      validate: (value) => value === getValues("password") || "This does not match the password that you have entered.",
     },
     first: {
-      required: false,
+      required: {
+        value: true,
+        message: 'First name is required.'
+      },
     },
     last: {
-      required: false,
+      required: {
+        value: true,
+        message: 'Last name is required.'
+      },
     },
     nric: {
       required: false,
@@ -86,9 +84,7 @@ export default function SignUp(props) {
     // });
     props.handleRegister(data);
     reset();
-    alert(
-      "Your registration is successful! You will be redirected to login now."
-    );
+    alert("Your registration is successful! You will be redirected to login now.");
     navigate("/login");
   };
 
@@ -104,42 +100,35 @@ export default function SignUp(props) {
           <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{mt: 3}}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
-                <TextField type='text' id="first" label="First Name" name="first" required fullWidth autoFocus {...register('first', validation.first)}/>
-                {errors.first && <p>{errors.first?.message}</p>}
+                <TextField type='text' id="first" label="First Name" name="first" fullWidth autoFocus {...register('first', validation.first)} error={errors.first} helperText={errors.first?.message}/>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField type='text' id="last" label="Last Name" name="last" required fullWidth {...register('last', validation.last)}/>
-                {errors.last && <p>{errors.last?.message}</p>}
+                <TextField type='text' id="last" label="Last Name" name="last" fullWidth {...register('last', validation.last)} error={errors.last} helperText={errors.last?.message}/>
               </Grid>
               <Grid item xs={12}>
-                <TextField type='email' id="email" label="Email Address" name="email" required fullWidth {...register('email', validation.email)}/>
-                {errors.email && <p>{errors.email?.message}</p>}
+                <TextField type='email' id="email" label="Email Address" name="email" fullWidth {...register('email', validation.email)} error={errors.email} helperText={errors.email?.message}/>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField type='text' id="nric" label="NRIC" name="nric" fullWidth {...register('nric', validation.nric)}/>
-                {errors.nric && <p>{errors.nric?.message}</p>}
+                <TextField type='text' id="nric" label="NRIC" name="nric" fullWidth {...register('nric', validation.nric)} error={errors.nric} helperText={errors.nric?.message}/>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker label="Date of Birth"/>
+                  <DatePicker label="Date of Birth" disableFuture/>
                 </LocalizationProvider>
                 {errors.dob && <p>{errors.dob?.message}</p>}
               </Grid>
               <Grid item xs={12} sm={6}>
-                <TextField type='text' id="address" label="Address" name="address" fullWidth {...register('address', validation.address)}/>
-                {errors.address && <p>{errors.address?.message}</p>}
+                <TextField type='text' id="address" label="Address" name="address" fullWidth {...register('address', validation.address)} error={errors.address} helperText={errors.address?.message}/>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <ReactPhoneInput defaultCountry={'sg'} component={TextField} id='contact'/>
                 {errors.contact && <p>{errors.contact?.message}</p>}
               </Grid>
               <Grid item xs={12}>
-                <TextField type="password" id="password" label="Password" name="password" required fullWidth {...register('password', validation.password)}/>
-                {errors.password && <p>{errors.password?.message}</p>}
+                <TextField type="password" id="password" label="Password" name="password" fullWidth {...register('password', validation.password)} error={errors.password} helperText={errors.password?.message}/>
               </Grid>
               <Grid item xs={12}>
-                <TextField type="password" id="rePassword" label="Re-enter Password" name="rePassword" required fullWidth {...register('rePassword', validation.rePassword)}/>
-                {errors.rePassword && <p>{errors.rePassword?.message}</p>}
+                <TextField type="password" id="rePassword" label="Re-enter Password" name="rePassword" fullWidth {...register('rePassword', validation.rePassword)} error={errors.rePassword} helperText={errors.rePassword?.message}/>
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel control={<Checkbox value="allowExtraEmails" color="primary" />} label="I want to receive inspiration, marketing promotions and updates via email."/>
