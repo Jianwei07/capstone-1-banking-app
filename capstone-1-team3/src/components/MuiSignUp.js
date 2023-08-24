@@ -104,7 +104,7 @@ export default function SignUp(props) {
         <CssBaseline />
         <Box
           sx={{
-            minHeight: "85vh",
+            minHeight: "100vh",
             marginTop: 8,
             display: "flex",
             flexDirection: "column",
