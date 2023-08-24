@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/capstone-1-banking-app/static/css/main.fcb4109a.css",
-    "main.js": "/capstone-1-banking-app/static/js/main.2620155e.js",
+    "main.css": "/capstone-1-banking-app/static/css/main.264687f8.css",
+    "main.js": "/capstone-1-banking-app/static/js/main.64d2bba2.js",
+    "static/media/iPhone.png": "/capstone-1-banking-app/static/media/iPhone.f9e936d64d726036a2fd.png",
     "static/media/load.png": "/capstone-1-banking-app/static/media/load.bc430cb522e123ae2def.png",
-    "static/media/fx.png": "/capstone-1-banking-app/static/media/fx.ce02ed568f7e16bcda46.png",
-    "static/media/favicon.ico": "/capstone-1-banking-app/static/media/favicon.294226104eba3024c779.ico",
+    "static/media/InnovSlogan.png": "/capstone-1-banking-app/static/media/InnovSlogan.fb9c3e3f42dc61cf74f9.png",
+    "static/media/load2.png": "/capstone-1-banking-app/static/media/load2.3f219b3efbbedf323f51.png",
     "index.html": "/capstone-1-banking-app/index.html",
-    "main.fcb4109a.css.map": "/capstone-1-banking-app/static/css/main.fcb4109a.css.map",
-    "main.2620155e.js.map": "/capstone-1-banking-app/static/js/main.2620155e.js.map"
+    "main.264687f8.css.map": "/capstone-1-banking-app/static/css/main.264687f8.css.map",
+    "main.64d2bba2.js.map": "/capstone-1-banking-app/static/js/main.64d2bba2.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcb4109a.css",
-    "static/js/main.2620155e.js"
+    "static/css/main.264687f8.css",
+    "static/js/main.64d2bba2.js"
   ]
 }
