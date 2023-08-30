@@ -43,7 +43,7 @@ const Hero = () => {
                 align="left"
                 color="white"
                 sx={{
-                  fontSize: "64px",
+                  fontSize: "36px",
                   fontWeight: 650,
                   marginBottom: "10px",
                 }}
@@ -58,9 +58,9 @@ const Hero = () => {
                 paragraph
                 sx={{
                   fontWeight: 300,
-                  fontSize: "28px",
-                  height: "230px",
-                  marginBottom: "0px",
+                  fontSize: "20px",
+                  // height: "230px",
+                  marginBottom: "20px",
                 }}
               >
                 <span style={{ color: "#F8F3A3" }}> Innov</span>Pay
@@ -77,13 +77,13 @@ const Hero = () => {
                   fontFamily: "Open Sans",
                   fontWeight: "bold",
                   width: "194px",
-                  height: "67px",
+                  height: "50px",
                   margin: "0 0 10px 10px",
                   "&:hover": {
-                    backgroundColor: theme.palette.deepNavy, // Keep the same background color on hover
+                    backgroundColor: theme.palette.deepNavy,
                   },
                   "&:focus": {
-                    outline: "none", // Remove the default focus outline
+                    outline: "none",
                   },
                 }}
               >
@@ -101,7 +101,7 @@ const Hero = () => {
                   fontFamily: "Open Sans",
                   fontWeight: "bold",
                   width: "194px",
-                  height: "67px",
+                  height: "50px",
                   margin: "0 0 10px 10px",
                   "&:hover": {
                     backgroundColor: "white",
@@ -113,7 +113,6 @@ const Hero = () => {
               >
                 EXCHANGE RATES
               </Button>
-
               {/* icons to preview features */}
               <Grid
                 container
@@ -122,8 +121,8 @@ const Hero = () => {
                   display: "flex",
                   justifyContent: "space-between",
                   flexDirection: "row",
+                  marginTop: "20px",
                 }}
-                padding="60px 120px 10px 20px"
               >
                 <Grid
                   item
@@ -134,7 +133,7 @@ const Hero = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    textAlign: "center", // Center the text horizontally
+                    textAlign: "center",
                   }}
                 >
                   <CurrencyExchangeIcon
@@ -190,7 +189,7 @@ const Hero = () => {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                    textAlign: "center", // Center the text horizontally
+                    textAlign: "center",
                   }}
                 >
                   <SavingsIcon
@@ -224,8 +223,9 @@ const Hero = () => {
             md={6}
             sm={12}
             sx={{
+              marginTop: "20px",
               display: "flex",
-              justifyContent: "flex-end",
+              justifyContent: "center",
               alignItems: "center",
             }}
           >
