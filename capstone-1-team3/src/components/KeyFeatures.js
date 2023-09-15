@@ -6,301 +6,255 @@ import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import SpeedIcon from "@mui/icons-material/Speed";
 import DevicesIcon from "@mui/icons-material/Devices";
 import { useNavigate } from "react-router-dom";
-import { ThemeProvider } from "@emotion/react";
-import CssBaseline from "@mui/material/CssBaseline";
-import theme from "./theme";
+import { useTheme } from "../ThemeProvider";
 
 const KeyFeatures = () => {
+  const theme = useTheme();
   const navigate = useNavigate();
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box
-        id="about"
-        sx={{
-          backgroundColor: theme.palette.deepNavy,
-          flexGrow: 1,
-          minHeight: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center", // Center horizontally
-        }}
+    <Box
+      id="KeyFeatures"
+      bgcolor={theme.deepNavy}
+      minHeight="100vh"
+      alignItems="center"
+      px={8}
+      sx={{display:"flex",flexDirection: "column"}}
+    >
+      {/* The first part */}
+      <Grid
+        container
+        py={6}
+        rowSpacing={5}
       >
         <Grid
-          container
-          padding="50px 50px"
-          rowSpacing={1}
-          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          alignItems="center"
+          item
+          xs={12} sm={9} md={9}
         >
-          <Grid
-            item
-            xs={9}
-            sm={9}
-            md={9}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
+          <Typography
+            variant="h2"
+            color="white"
+            fontSize="58px"
           >
-            <Typography
-              variant="h2"
-              align="left"
-              color="white"
-              sx={{
-                fontWeight: 500,
-                fontSize: "58px",
-                marginBottom: "10px",
-              }}
-            >
-              Evolve your wallet efficiency with{" "}
-              <span style={{ color: "#F8F3A3" }}> Innov</span>Pay competitive
-              exchange rates and Interest API
-            </Typography>
-
-            <Typography
-              variant="subtitle1"
-              align="left"
-              paragraph
-              color="white"
-              sx={{
-                fontWeight: 200,
-                fontSize: "24px",
-              }}
-            >
-              <span style={{ color: "#F8F3A3" }}> Innov</span>Pay revolutionizes
-              finance, uniting interest generation and currency exchange within
-              a fortified multi-currency digital wallet, expanding your
-              financial horizons.
-            </Typography>
-          </Grid>
-          <Box width="100%" />
-          <Grid item xs={4}>
-            <Button
-              variant="contained"
-              onClick={() => navigate("/Getintouch")}
-              sx={{
-                width: "150px",
-                height: "50px",
-                color: "black",
-                borderRadius: "15px",
-                backgroundColor: "#F6F3A3",
-                fontWeight: "bold",
-                "&:hover": {
-                  backgroundColor: theme.palette.dirtyGold,
-                },
-                "&:focus": {
-                  outline: "none",
-                },
-              }}
-            >
-              Get In Touch
-            </Button>
-          </Grid>
+            Evolve your wallet efficiency with{" "}
+            <span style={{ color: theme.lightGold }}>Innov</span>Pay competitive
+            exchange rates and Interest API
+          </Typography>
         </Grid>
 
         <Grid
-          container
-          padding="10px 50px"
-          columns={10}
-          rowSpacing={1}
-          columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-          sx={{
-            backgroundColor: theme.palette.deepNavy,
-            justifyContent: "center",
-          }}
-          alignItems="flex-start"
+          item
+          xs={12} sm={9} md={9}
         >
-          {/* First Feature */}
-          <Grid
-            item
-            xs={2}
-            alignItems="center"
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
+          <Typography
+            variant="subtitle1"
+            paragraph
+            color="white"
+            fontSize="20px"
           >
-            <CurrencyExchangeIcon
-              sx={{ fontSize: 100, color: theme.palette.dirtyGold }}
-            />
-            <Typography
-              variant="subtitle1"
-              paragraph
-              color="white"
-              sx={{
-                fontWeight: 600,
-                fontSize: "16px",
-              }}
-            >
-              Competitive Exchange Rates (42 Currencies)
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-              color="pink"
-              sx={{
-                fontWeight: 400,
-                fontSize: "14px",
-              }}
-            >
-              Access 42 rates for global transactions, maximizing the value of
-              your currencies.
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            alignItems="center"
-            xs={2}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <AccountBalanceWalletIcon
-              sx={{ fontSize: 100, color: theme.palette.dirtyGold }}
-            />
-            <Typography
-              variant="subtitle1"
-              paragraph
-              color="white"
-              sx={{
-                fontWeight: 600,
-                fontSize: "16px",
-              }}
-            >
-              Secure Multi-Currency Wallet
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-              color="pink"
-              sx={{
-                fontWeight: 400,
-                fontSize: "14px",
-              }}
-            >
-              Rest easy with InnovPay's state-of-the-art secure MultiCurrency
-              Wallet, protecting your assets and transactions.
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            alignItems="center"
-            xs={2}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <SavingsIcon
-              sx={{ fontSize: 100, color: theme.palette.dirtyGold }}
-            />
-            <Typography
-              variant="subtitle1"
-              paragraph
-              color="white"
-              sx={{
-                fontWeight: 600,
-                fontSize: "16px",
-              }}
-            >
-              Earn 3.28% Interest T&C applies*
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-              color="pink"
-              sx={{
-                fontWeight: 400,
-                fontSize: "14px",
-              }}
-            >
-              Elevate your financial possibilities through a remarkable 3.28%
-              interest rate, ushering in new avenues of prosperity.
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            alignItems="center"
-            xs={2}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <SpeedIcon sx={{ fontSize: 100, color: theme.palette.dirtyGold }} />
-            <Typography
-              variant="subtitle1"
-              paragraph
-              color="white"
-              sx={{
-                fontWeight: 600,
-                fontSize: "16px",
-              }}
-            >
-              Instant Cross-Border Remittances
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-              color="pink"
-              sx={{
-                fontWeight: 400,
-                fontSize: "14px",
-              }}
-            >
-              Seamlessly send and receive money across the globe with
-              lightning-fast remittances, simplifying international
-              transactions.
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            alignItems="center"
-            xs={2}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            <DevicesIcon
-              sx={{ fontSize: 100, color: theme.palette.dirtyGold }}
-            />
-            <Typography
-              variant="subtitle1"
-              paragraph
-              color="white"
-              sx={{
-                fontWeight: 600,
-                fontSize: "16px",
-              }}
-            >
-              AI-Driven Financial Insights
-            </Typography>
-            <Typography
-              variant="body1"
-              paragraph
-              color="pink"
-              sx={{
-                fontWeight: 400,
-                fontSize: "14px",
-              }}
-            >
-              Harness personalized AI insights, gaining valuable perspectives
-              that guide your financial decisions for optimal growth.
-            </Typography>
-          </Grid>
+            Discover a new era of financial evolution with InnovPay. Our platform empowers your wallet product with 42 highly competitive exchange rates, facilitating seamless global transactions. Experience the security of our MultiCurrency Wallet, safeguarding your assets across currencies. Earn 3.28% interest, propelling your financial growth. Worry less, live more.
+          </Typography>
         </Grid>
-      </Box>
-    </ThemeProvider>
+
+        <Box width="100%"/>
+
+        <Grid item>
+          <Button
+            variant="contained"
+            onClick={() => navigate("/Getintouch")}
+            sx={{
+              width: "150px",
+              height: "50px",
+              bgcolor: theme.veryLightGold,
+              color: "black",
+              borderRadius: "15px",
+              fontWeight: "bold",
+              "&:hover": {
+                backgroundColor: theme.dirtyGold,
+              },
+              "&:focus": {
+                outline: "none",
+              },
+            }}
+          >
+            Get In Touch
+          </Button>
+        </Grid>
+      
+      </Grid>
+
+      {/* The second part */}
+      <Grid
+        container
+        columns={15}
+        rowSpacing={2}
+        columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+        bgcolor={theme.deepNavy}
+        justifyContent= "center"
+        alignItems="flex-start"
+        pt={2}
+        pb={6}
+      >
+        <Grid
+          item
+          xs={15} sm={5} md={3}
+        >
+          <CurrencyExchangeIcon
+            sx={{ fontSize: 100, color: theme.dirtyGold }}
+          />
+          <Typography
+            variant="subtitle1"
+            paragraph
+            color="white"
+            sx={{
+              fontWeight: 600,
+              fontSize: "16px",
+            }}
+          >
+            Competitive Exchange Rates (42 Currencies)
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            color="pink"
+            sx={{
+              fontWeight: 400,
+              fontSize: "14px",
+            }}
+          >
+            Access 42 rates for global transactions, maximizing the value of
+            your currencies.
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          xs={15} sm={5} md={3}
+        >
+          <AccountBalanceWalletIcon
+            sx={{ fontSize: 100, color: theme.dirtyGold }}
+          />
+          <Typography
+            variant="subtitle1"
+            paragraph
+            color="white"
+            sx={{
+              fontWeight: 600,
+              fontSize: "16px",
+            }}
+          >
+            Secure Multi-Currency Wallet
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            color="pink"
+            sx={{
+              fontWeight: 400,
+              fontSize: "14px",
+            }}
+          >
+            Rest easy with InnovPay's state-of-the-art secure MultiCurrency
+            Wallet, protecting your assets and transactions.
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          xs={15} sm={5} md={3}
+        >
+          <SavingsIcon
+            sx={{ fontSize: 100, color: theme.dirtyGold }}
+          />
+          <Typography
+            variant="subtitle1"
+            paragraph
+            color="white"
+            sx={{
+              fontWeight: 600,
+              fontSize: "16px",
+            }}
+          >
+            Earn 3.28% Interest T&C applies*
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            color="pink"
+            sx={{
+              fontWeight: 400,
+              fontSize: "14px",
+            }}
+          >
+            Elevate your financial possibilities through a remarkable 3.28%
+            interest rate, ushering in new avenues of prosperity.
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          xs={15} sm={5} md={3}
+        >
+          <SpeedIcon sx={{ fontSize: 100, color: theme.dirtyGold }} />
+          <Typography
+            variant="subtitle1"
+            paragraph
+            color="white"
+            sx={{
+              fontWeight: 600,
+              fontSize: "16px",
+            }}
+          >
+            Instant Cross-Border Remittances
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            color="pink"
+            sx={{
+              fontWeight: 400,
+              fontSize: "14px",
+            }}
+          >
+            Seamlessly send and receive money across the globe with
+            lightning-fast remittances, simplifying international
+            transactions.
+          </Typography>
+        </Grid>
+
+        <Grid
+          item
+          xs={15} sm={5} md={3}
+        >
+          <DevicesIcon
+            sx={{ fontSize: 100, color: theme.dirtyGold }}
+          />
+          <Typography
+            variant="subtitle1"
+            paragraph
+            color="white"
+            sx={{
+              fontWeight: 600,
+              fontSize: "16px",
+            }}
+          >
+            AI-Driven Financial Insights
+          </Typography>
+          <Typography
+            variant="body1"
+            paragraph
+            color="pink"
+            sx={{
+              fontWeight: 400,
+              fontSize: "14px",
+            }}
+          >
+            Harness personalized AI insights, gaining valuable perspectives
+            that guide your financial decisions for optimal growth.
+          </Typography>
+        </Grid>
+      </Grid>
+    </Box>
+
   );
 };
 

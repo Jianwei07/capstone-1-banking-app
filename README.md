@@ -19,4 +19,5 @@ The following technologies will be used for implementing the front-end and UI of
 - Local Storage API - For client-side storage of user data in the browser
 - JSON - For serializing and transmitting data to/from back-end
   
-
+## Deployment on GitHub
+[Deploymnet Page on GitHub](https://jianwei07.github.io/capstone-1-banking-app/)

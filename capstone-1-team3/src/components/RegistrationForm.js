@@ -1,26 +1,28 @@
-import React from "react";
-import dayjs from 'dayjs';
-import { useNavigate } from "react-router-dom";
-import { useForm, Controller } from "react-hook-form";
+import React from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css';
 import {
-  Grid, Avatar, Typography, createTheme, FormHelperText,
+  FormControlLabel, Checkbox, Grid, Avatar, Typography, createTheme, FormHelperText,
   ThemeProvider, Container, Box, CssBaseline, TextField, Button
 } from '@mui/material';
+
+// Profile 
+// email, password, fName, lName, nric, address, birthDate, contactNumber
 
 const defaultTheme = createTheme();
 
 const schema = yup.object().shape({
   fName: yup.string().required('First Name is required'),
   lName: yup.string().required('Last Name is required'),
-  email: yup.string().required('Email is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
   password: yup
     .string()
     .required('Password is required')
@@ -41,41 +43,32 @@ const schema = yup.object().shape({
   address: yup.string(),
 });
 
-function Profile(props) {
+function RegistrationForm(props) {
   const navigate = useNavigate();
-  const { currentProfile, handleProfileUpdate, setIsLoggedIn } = props;
   const {
     handleSubmit,
     control,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm({
     resolver: yupResolver(schema),
-    defaultValues: {
-      email: currentProfile.email[0],
-      address: currentProfile.profile.address,
-      fName: currentProfile.profile.fName,
-      lName: currentProfile.profile.lName,
-      nric: currentProfile.profile.nric,
-      contactNumber: currentProfile.profile.contactNumber,
-      password: currentProfile.profile.password,
-      birthDate: dayjs(currentProfile.profile.birthDate),
-    }
   });
-
-  // Profile 
-  // email, password, fName, lName, nric, address, birthDate, contactNumber
 
   const onSubmit = (data) => {
     console.log(data);
-    handleProfileUpdate(data);
-    alert("Your update has been saved. You can proceed to log out Now.");
+    if (props.profileList[data.email]){
+      reset();
+      alert("Sign up failed, there is an existing account with the same email. "); 
+      
+    } else {
+      props.handleRegister(data);
+      reset();
+      alert(
+        "Your registration is successful! You will be redirected to login now."
+      );
+      navigate("/login");
+    }
 
-  };
-
-  const handleLogOut = () => {
-    navigate("/");
-    setIsLoggedIn(false);
-    alert("Thank you for banking with us! You are now logged out.");
   };
 
   return (
@@ -98,11 +91,12 @@ function Profile(props) {
             alignItems: "center"
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
-            <AccountCircleIcon />
+          {/* <Container maxWidth="sm"> */}
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <LockOutlinedIcon />
           </Avatar>
           <Typography variant="h5" >
-            Profile
+            Sign up
           </Typography>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2} mt={3}>
@@ -110,6 +104,7 @@ function Profile(props) {
                 <Controller
                   name="fName"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
@@ -127,6 +122,7 @@ function Profile(props) {
                 <Controller
                   name="lName"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
@@ -143,14 +139,12 @@ function Profile(props) {
                 <Controller
                   name="email"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
                       fullWidth
-                      InputProps={{
-                        readOnly: true,
-                      }}
-                      label="Email (Cannot be changed)"
+                      label="Email"
                       variant="outlined"
                       error={!!errors.email}
                       helperText={errors.email?.message}
@@ -163,6 +157,7 @@ function Profile(props) {
                 <Controller
                   name="nric"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
@@ -181,6 +176,7 @@ function Profile(props) {
                   <Controller
                     name="birthDate"
                     control={control}
+                    defaultValue={null}
                     render={({ field }) => (
                       <DatePicker
                         {...field}
@@ -199,6 +195,7 @@ function Profile(props) {
                 <Controller
                   name="address"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
@@ -215,8 +212,10 @@ function Profile(props) {
                 <Controller
                   name="contactNumber"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <PhoneInput
+
                       inputStyle={
                         errors.contactNumber ? {
                           width: '100%',
@@ -249,12 +248,13 @@ function Profile(props) {
                 <Controller
                   name="password"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
                       fullWidth
                       type="password"
-                      label="New Password"
+                      label="Password"
                       variant="outlined"
                       error={!!errors.password}
                       helperText={errors.password?.message}
@@ -267,12 +267,13 @@ function Profile(props) {
                 <Controller
                   name="passwordConfirmation"
                   control={control}
+                  defaultValue=""
                   render={({ field }) => (
                     <TextField
                       {...field}
                       fullWidth
                       type="password"
-                      label="Confirm New Password"
+                      label="Confirm Password"
                       variant="outlined"
                       error={!!errors.passwordConfirmation}
                       helperText={errors.passwordConfirmation?.message}
@@ -280,25 +281,32 @@ function Profile(props) {
                   )}
                 />
               </Grid>
+
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={
+                    <Checkbox value="allowExtraEmails" color="primary" />
+                  }
+                  label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
+
             </Grid>
             <Button type="submit" fullWidth variant="contained" color="primary" sx={{ mt: 3, mb: 2 }} >
-              Update
+              Sign Up
             </Button>
-            <Button
-              fullWidth
-              variant="contained"
-              onClick={handleLogOut}
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Log Out
-            </Button>
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'flex-end'
+            }}>
+              <Link to={"/login"}>Already have an account? Sign in</Link>
+            </Box>
           </form>
+          {/* </Container> */}
         </Box>
       </Container>
     </ThemeProvider>
-
-
   );
 }
 
-export default Profile;
+export default RegistrationForm;

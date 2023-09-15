@@ -1,29 +1,20 @@
 import React from "react";
-import {
-  Box,
-  Button,
-  Typography,
-  TextField,
-  TextareaAutosize,
-  Grid,
-} from "@mui/material";
+import { Box, Button, Typography, TextField, Grid } from "@mui/material";
+import { useTheme } from "../ThemeProvider";
 
 const GetInTouch = () => {
+  const theme = useTheme();
   const handleLogOut = () => {
     alert("Thank you for your inquiry!");
   };
   return (
     <Box
-      sx={{
-        minHeight: "100vh",
-      }}
+      minHeight="100vh"
       id="Getintouch"
-      display="flex"
       justifyContent="center"
       alignItems="center"
-      width="100%"
-      padding={{ xs: "0px 20px", md: "0px 40px" }}
-      bgcolor="#152840"
+      sx={{ display: "flex" }}
+      p={6}
     >
       <Grid
         container
@@ -31,148 +22,123 @@ const GetInTouch = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Grid item xs={12} md={6}>
-          <div>
-            <Typography
-              variant="h1"
-              align="left"
-              color="white"
-              sx={{
-                fontFamily: "Open Sans",
-                fontSize: "64px",
-                fontWeight: 700,
-                marginBottom: "10px",
-              }}
-            >
-              <span style={{ color: "#F8F3A3" }}>Contact</span> us
-            </Typography>
-            <Typography
-              color="white"
-              variant="body1"
-              align="left"
-              paragraph
-              sx={{
-                fontFamily: "Open Sans",
-                fontWeight: 300,
-                fontSize: "28px",
-                width: "100%",
-                marginBottom: "0px",
-              }}
-            >
-              Need to get in touch with us? Either fill out the form with your
-              personal inquiry or find the support email you’d like to contact
-              below.
-            </Typography>
-          </div>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Box
-            width="500px"
-            height="500px"
-            border="1px solid #000"
-            background="#152840"
-            boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
-            borderRadius="10px"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            padding="20px"
+        <Grid item xs={12} sm={12} md={6}>
+          <Typography
+            variant="h1"
+            color="white"
+            fontFamily={theme.fontFamily}
+            fontSize="64px"
+            fontWeight="700"
+            mb={3}
           >
-            <form style={{ width: "100%", padding: "20px" }}>
-              <div
-                style={{
-                  marginBottom: "10px",
-                  display: "flex",
-                  gap: "32px",
-                }}
-              >
-                <div style={{ width: "240px" }}>
-                  <Typography variant="body1" color="white">
+            <span style={{ color: theme.lightGold }}>Contact</span> us
+          </Typography>
+          <Typography
+            color="white"
+            variant="body1"
+            paragraph
+            fontFamily={theme.fontFamily}
+            fontSize="28px"
+            fontWeight="300"
+          >
+            Need to get in touch with us? Either fill out the form with your
+            personal inquiry or find the support email you’d like to contact
+            below.
+          </Typography>
+        </Grid>
+
+        <Grid item xs={12} sm={12} md={6}>
+          <form>
+            <Box
+              border="1px solid #000"
+              background={theme.deepNavy}
+              boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
+              borderRadius="10px"
+              padding="40px"
+              spacing={2}
+              sx={{ display: "flex", flexDirection: "column" }}
+            >
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={12} md={7}>
+                  <Typography variant="body1" color="white" mb={1}>
                     First Name:
                   </Typography>
                   <TextField
-                    fullWidth
                     variant="outlined"
-                    margin="dense"
-                    sx={{ backgroundColor: "#47546C", borderRadius: "10px" }}
-                    inputProps={{ style: { color: "#F8F3A3" } }}
+                    fullWidth
+                    sx={{ backgroundColor: theme.lightNavy, borderRadius: "10px" }}
+                    inputProps={{ style: { color: "white" } }}
                   />
-                </div>
-                <div style={{ width: "150px" }}>
-                  <Typography variant="body1" color="white">
+                </Grid>
+
+                <Grid item xs={12} sm={12} md={5}>
+                  <Typography variant="body1" color="white" mb={1}>
                     Last Name:
+                  </Typography>
+                  <TextField
+                    variant="outlined"
+                    fullWidth
+                    sx={{ backgroundColor: theme.lightNavy, borderRadius: "10px" }}
+                    inputProps={{ style: { color: "white" } }}
+                  />
+                </Grid >
+
+                <Grid item xs={12} sm={12} md={12}>
+                  <Typography variant="body1" color="white" mb={1}>
+                    Email:
                   </Typography>
                   <TextField
                     fullWidth
                     variant="outlined"
-                    margin="dense"
-                    sx={{ backgroundColor: "#47546C", borderRadius: "10px" }}
-                    inputProps={{ style: { color: "#F8F3A3" } }}
+                    sx={{ backgroundColor: theme.lightNavy, borderRadius: "10px" }}
+                    inputProps={{ style: { color: "white" } }}
                   />
-                </div>
-              </div>
-              <div style={{ marginBottom: "10px", width: "422px" }}>
-                <Typography variant="body1" color="white">
-                  Email:
-                </Typography>
-                <TextField
-                  fullWidth
-                  variant="outlined"
-                  margin="dense"
-                  sx={{
-                    backgroundColor: "#47546C",
-                    borderRadius: "10px",
-                  }}
-                  inputProps={{ style: { color: "#F8F3A3" } }}
-                />
-              </div>
-              <div style={{ marginBottom: "10px" }}>
-                <Typography variant="body1" color="white">
-                  What can we help you with?:
-                </Typography>
-                <TextareaAutosize
-                  variant="outlined"
-                  margin="dense"
-                  style={{
-                    backgroundColor: "#47546C",
-                    width: "422px",
-                    height: "150px",
-                    borderRadius: "10px",
-                    resize: "none",
-                    padding: "10px",
-                    border: "none",
-                    color: "#F8F3A3",
-                  }}
-                  rows={4}
-                />
-              </div>
+                </Grid>
 
-              <Button
-                onClick={handleLogOut}
-                fullWidth
-                variant="contained"
-                sx={{
-                  width: "100px",
-                  height: "40px",
-                  marginTop: "10px",
-                  backgroundColor: "#F8F3A3",
-                  color: "black",
-                  fontFamily: "Open Sans",
-                  fontWeight: "bold",
-                  borderRadius: "10px",
-                  "&:hover": {
-                    backgroundColor: "white",
-                  },
-                  "&:focus": {
-                    outline: "none",
-                  },
-                }}
-              >
-                Submit
-              </Button>
-            </form>
-          </Box>
+                <Grid item xs={12} sm={12} md={12} mb={5}>
+                  <Typography variant="body1" color="white" mb={1}>
+                    What can we help you with?
+                  </Typography>
+                  <TextField
+                    multiline
+                    variant="outlined"
+                    minRows={5}
+                    fullWidth
+                    inputProps={{ style: { color: "white" } }}
+                    sx={{
+                      backgroundColor: theme.lightNavy,
+                      borderRadius: "10px",
+                      resize: "vertical",
+                    }}
+                  />
+                </Grid>
+
+                <Grid item >
+                  <Button
+                    onClick={handleLogOut}
+                    variant="contained"
+                    sx={{
+                      width: "150px",
+                      height: "50px",
+                      bgcolor: theme.veryLightGold,
+                      color: "black",
+                      fontFamily: theme.fontFamily,
+                      fontWeight: "bold",
+                      borderRadius: "10px",
+                      "&:hover": {
+                        backgroundColor: theme.lightGrey,
+                      },
+                      "&:focus": {
+                        outline: "none",
+                      },
+                    }}
+                  >
+                    Submit
+                  </Button>
+                </Grid>
+              </Grid>
+            </Box>
+          </form>
         </Grid>
       </Grid>
     </Box>

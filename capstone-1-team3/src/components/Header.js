@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  CssBaseline,
-  GlobalStyles,
-  ThemeProvider,
-} from "@mui/material";
-import theme from "./theme";
-import load2 from "../style/load2.png";
+import { AppBar, Grid, Box, Toolbar, Link, Button } from "@mui/material";
+import { useTheme } from "../ThemeProvider";
+import HeadLogo from "../style/HeadLogo.png";
 
 const Header = (props) => {
+  const theme = useTheme();
   const { isLoggedIn, setIsLoggedIn } = props;
   const [scrollTarget, setScrollTarget] = useState("");
   const navigate = useNavigate();
@@ -20,7 +13,7 @@ const Header = (props) => {
     if (scrollTarget) {
       const targetElement = document.getElementById(scrollTarget);
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+        targetElement.scrollIntoView({ align:false, behavior: "smooth" });
       }
       setScrollTarget(null); // Clear the target so we don't keep trying to scroll on subsequent renders
     }
@@ -28,84 +21,60 @@ const Header = (props) => {
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles
-          styles={{ ul: { margin: 0, padding: 0, listStyle: "none" } }}
-        />
-        <CssBaseline />
-        <AppBar position="static" color="primary">
-          <Toolbar
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "0 24px",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <Typography
-                variant="h6"
-                style={{
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                }}
+      <AppBar position="sticky">
+        <Toolbar
+          sx={{ backgroundColor: theme.darkGrey }}
+          px={4}
+        >
+          <Grid container alignItems="center">
+            <Grid item xs={3} sm={4} md={4}>
+              <Link
+                style={{ cursor: 'pointer' }}
                 onClick={() => {
                   navigate("/capstone-1-banking-app");
                   setScrollTarget("top");
                 }}
-                sx={{
-                  color: "white",
-                  fontWeight: "bold",
-                }}
               >
                 <img
-                  src={load2}
+                  src={HeadLogo}
                   alt="Logo"
-                  height="50px"
-                  margin-top="5px"
-                  style={{ marginTop: "5px" }}
-                  onClick={() => navigate("/")}
+                  height="40px"
                 />
-              </Typography>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
+              </Link>
+            </Grid>
+            <Grid item
+              sm={4} md={4}
+              textAlign="center"
+              sx={{ display: { xs: 'none', sm:'block'} }}
             >
               <Button
-                color="inherit"
                 onClick={() => {
                   navigate("/capstone-1-banking-app");
-                  setScrollTarget("about");
+                  setScrollTarget("KeyFeatures");
                 }}
-                sx={{ color: "#F8F3A3", fontWeight: "bold", margin: "0 10px" }}
+                sx={{ color: theme.lightGold, fontWeight: "bold", margin: "0px 15px" }}
               >
                 Key Features
               </Button>
               <Button
-                color="inherit"
                 onClick={() => {
                   navigate("/capstone-1-banking-app");
                   setScrollTarget("contact");
                 }}
-                sx={{ color: "#C9EEF2", fontWeight: "bold", margin: "0 10px" }}
+                sx={{ color: theme.tiffany, fontWeight: "bold", margin: "0px 15px" }}
               >
                 Contact Us
               </Button>
-            </div>
+            </Grid>
             {!isLoggedIn ? (
-              <div>
+              <Grid item
+                xs={9} sm={4} md={4}
+                textAlign="right">
                 <Button
                   color="inherit"
                   onClick={() => navigate("/login")}
                   variant="outlined"
                   sx={{
-                    my: 1,
-                    mx: 1.5,
                     color: "white",
                     fontWeight: "bold",
                     margin: "0 10px",
@@ -118,8 +87,6 @@ const Header = (props) => {
                   onClick={() => navigate("/registration")}
                   variant="outlined"
                   sx={{
-                    my: 1,
-                    mx: 1.5,
                     color: "white",
                     fontWeight: "bold",
                     margin: "0 10px",
@@ -127,25 +94,29 @@ const Header = (props) => {
                 >
                   Sign Up
                 </Button>
-              </div>
+              </Grid>
             ) : (
-              <Button
-                color="inherit"
-                onClick={() => {
-                  navigate("/");
-                  setIsLoggedIn(false);
-                  alert(
-                    "Thank you for banking with us! You are now logged out"
-                  );
-                }}
-                sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
-              >
-                Log Out
-              </Button>
+              <Grid item xs={9} sm={4} md={4}
+                textAlign="right">
+                <Button
+                  color="inherit"
+                  onClick={() => {
+                    navigate("/");
+                    setIsLoggedIn(false);
+                    alert(
+                      "Thank you for banking with us! You are now logged out."
+                    );
+                  }}
+                  sx={{ color: "white", fontWeight: "bold", margin: "0 10px" }}
+                >
+                  Log Out
+                </Button>
+              </Grid>
             )}
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+
     </React.Fragment>
   );
 };

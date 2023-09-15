@@ -1,84 +1,59 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import { ThemeProvider } from "@emotion/react";
+import { Box, Grid, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import CssBaseline from "@mui/material/CssBaseline";
-import theme from "./theme";
+import { useTheme } from "../ThemeProvider";
 
 function Contact() {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <main
-        id="contact"
-        style={{
-          backgroundColor: theme.palette.dirtyGold,
-          color: "black",
-          minHeight: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-          alignItems: "center",
-          margin: 0,
-          padding: 0,
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "1rem",
-            marginTop: "1rem",
-          }}
-        >
-          <h1
-            style={{
-              color: "black",
-              fontSize: "2.5rem",
-              lineHeight: "0.5",
-              marginBottom: "0.5rem",
-            }}
-          >
-            InnovPay: Where Security, Innovation,
-            <p
-              style={{
-                color: "black",
-                fontSize: "2.5rem",
-                lineHeight: "0.5",
-                marginBottom: "0.5rem",
-              }}
-            >
-              and Prosperity Converge for You.
-            </p>
-          </h1>
-        </div>
-        <div style={{ marginBottom: "2rem" }}>
-          <p style={{ color: "black", fontSize: "1.25rem", lineHeight: "1.2" }}>
+    <Box
+      id="contact"
+      sx={{display:"flex"}}
+      justifyContent="center"
+      alignItems='center'
+      bgcolor={theme.dirtyGold}
+      color="black"
+      minHeight="100vh"
+      px={8}
+    >
+      <Grid container py={6} spacing={5} justifyContent="center">
+        <Grid item xs={12} sm={12} md={12} textAlign="center">
+          <Typography
+            fontFamily={theme.fontFamily}
+            variant="h2"
+            fontSize="50px"
+            fontWeight="bold">
+            InnovPay: Where Security, Innovation, and Prosperity Converge for You.
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sm={12} md={12} textAlign="center">
+          <Typography
+            fontFamily={theme.fontFamily}
+            variant="susbtitle1"
+            fontSize="20px">
             Step into the future of finance within a transparent community.
-          </p>
-          <p style={{ color: "black", fontSize: "1.25rem", lineHeight: "1.2" }}>
+            <br></br>
             Secure, diverse, and empowering solutions await your journey.
-          </p>
-        </div>
-        <div style={{ display: "flex", justifyContent: "center", gap: "1rem" }}>
+          </Typography>
+        </Grid>
+        <Grid item textAlign="center">
           <Button
             variant="contained"
-            color="deepNavy"
             size="large"
             onClick={() => navigate("/registration")}
             sx={{
-              borderRadius: theme.shape.borderRadius,
-              backgroundColor: theme.palette.deepNavy,
-              color: theme.palette.light,
-              fontFamily: theme.typography.fontFamily,
+              borderRadius: "10px",
+              backgroundColor: theme.deepNavy,
+              color: theme.lightGrey,
+              fontFamily: theme.fontFamily,
               fontWeight: "bold",
-              width: "194px",
-              height: "67px",
+              width: "200px",
+              height: "60px",
+              m:"10px",
               "&:hover": {
-                backgroundColor: theme.palette.deepNavy,
+                backgroundColor: theme.lightNavy,
               },
               "&:focus": {
                 outline: "none",
@@ -87,25 +62,35 @@ function Contact() {
           >
             OPEN AN ACCOUNT
           </Button>
-
           <Button
             variant="contained"
-            color="light"
             size="large"
             onClick={() => navigate("/Getintouch")}
+            mr={3}
             sx={{
-              borderRadius: theme.shape.borderRadius,
-              backgroundColor: theme.palette.light,
-              fontWeight: "bolder",
-              width: "194px",
-              height: "67px",
+              borderRadius: "10px",
+              backgroundColor: theme.lightGrey,
+              color: "black",
+              fontFamily: theme.fontFamily,
+              fontWeight: "bold",
+              width: "200px",
+              height: "60px",
+              m:"10px",
+              "&:hover": {
+                backgroundColor: theme.dirtyGold,
+              },
+              "&:focus": {
+                outline: "none",
+              },
             }}
           >
             Get In Touch
           </Button>
-        </div>
-      </main>
-    </ThemeProvider>
+
+        </Grid>
+      </Grid>
+    </Box>
+
   );
 }
 

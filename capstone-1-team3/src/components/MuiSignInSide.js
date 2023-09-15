@@ -1,58 +1,26 @@
 import * as React from "react";
 import { useState } from "react";
-import Avatar from "@mui/material/Avatar";
 import { useNavigate } from "react-router-dom";
-// ,Link
-import CssBaseline from "@mui/material/CssBaseline";
-
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-
-import { Grid, TextField, Button } from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom';
+import { Grid, Paper, Box, Typography, Button, Avatar, FormControlLabel, TextField, Checkbox, Link, CssBaseline, createTheme, ThemeProvider } from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="">
-        InnovPay
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function SignInSide(props) {
-  const [loginInput, setLoginInput] = useState({ email: "", password: "" });
-  const [isWrongLogin, setIsWrongLogin] = useState(false);
   const navigate = useNavigate();
   const { profileList, handleSignInSuccess } = props;
+  const [loginInput, setLoginInput] = useState({ email: "", password: "" });
+  const [isWrongLogin, setIsWrongLogin] = useState(false);
+
+  const handleInput = (e) => {
+    setLoginInput({ ...loginInput, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // const data = new FormData(event.currentTarget);
-    // console.log({
-    // 	email: data.get('email'),
-    // 	password: data.get('password'),
-    // });
-
-    const profileChecker = profileList[loginInput.email]; //find and return the profile for the input email
+    //find and return the profile for the input email
+    const profileChecker = profileList[loginInput.email];
     if (profileChecker && profileChecker.password === loginInput.password) {
       //correct information
       setIsWrongLogin(false);
@@ -65,14 +33,10 @@ export default function SignInSide(props) {
     }
   };
 
-  const handleInput = (e) => {
-    setLoginInput({ ...loginInput, [e.target.name]: e.target.value });
-  };
-
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: "100vh" }}>
-        <CssBaseline />
+      <Grid container component="main" sx={{ minHeight: "100vh" }}>
+      <CssBaseline />
         <Grid
           item
           xs={false}
@@ -103,13 +67,12 @@ export default function SignInSide(props) {
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <LockOutlinedIcon />
             </Avatar>
-            <Typography color="black" component="h1" variant="h5">
+            <Typography component="h1" variant="h5">
               Sign in
             </Typography>
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
               sx={{ mt: 1 }}
             >
               <TextField
@@ -140,10 +103,11 @@ export default function SignInSide(props) {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+
               {isWrongLogin ? (
-                <p className="errmsg">
-                  The email or password that you have entered is incorrect
-                </p>
+                <Box color="red">
+                  The email or password that you have entered is incorrect.
+                </Box>
               ) : null}
 
               <Button
@@ -163,12 +127,12 @@ export default function SignInSide(props) {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link to="/registration" variant="body2">
+                  <Link component={RouterLink} to="/registration" variant="body2">
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
               </Grid>
-              <Copyright sx={{ mt: 5 }} />
+
             </Box>
           </Box>
         </Grid>

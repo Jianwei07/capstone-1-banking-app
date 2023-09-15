@@ -1,25 +1,23 @@
 import "./style/App.css";
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import { Routes, Route, BrowserRouter as Router, useLocation } from "react-router-dom";
 import loadPic from "./style/load.png";
-import React, { useState, useEffect } from "react";
-import {
-  Routes,
-  Route,
-  BrowserRouter as Router,
-  useLocation,
-} from "react-router-dom";
 import NavigateToHome from "./components/NavigateToHome";
-import Profile from "./components/Profile";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import KeyFeatures from "./components/KeyFeatures";
 import Contact from "./components/Contact";
-import MuiSignInSide from "./components/MuiSignInSide";
-import MuiSignup from "./components/MuiSignUp";
 import MuiFooter from "./components/MuiFooter";
+import MuiSignInSide from "./components/MuiSignInSide";
+import Profile from "./components/Profile";
 import GetInTouch from "./components/Get-intouch";
-import { useLayoutEffect } from "react";
+import RegistrationForm from './components/RegistrationForm';
+
+//should try to use other form of alert? in Registration Form and Profile.
 
 const App = () => {
+
+  // Setup Scroll
   const Wrapper = ({ children }) => {
     const location = useLocation();
     useLayoutEffect(() => {
@@ -35,7 +33,7 @@ const App = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 
   // Setup Profile
@@ -44,10 +42,10 @@ const App = () => {
       password: "123",
       fName: "Tom",
       lName: "Tan",
-      nRIC: "S9849142",
+      nric: "S9849142",
       address: "Singapore",
       birthDate: "",
-      contactNumber: "92480912",
+      contactNumber: "6592480912",
     },
   });
   const [currentProfile, setCurrentProfile] = useState({});
@@ -55,7 +53,12 @@ const App = () => {
   //Check login status
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // //Retrieve any initial accounts stored in local storage
+  //Retrieve and update state of profile list from Local Storage
+  const getProfileList = () => {
+    return JSON.parse(localStorage.getItem("profileList"));
+  };
+
+  // Retrieve any initial accounts stored in local storage
   useEffect(() => {
     const retrievedProfiles = getProfileList();
     if (retrievedProfiles) {
@@ -72,40 +75,36 @@ const App = () => {
     localStorage.setItem("profileList", JSON.stringify(profileList));
   }, [profileList]);
 
-  //Retrieve and update state of profile list from Local Storage
-  const getProfileList = () => {
-    return JSON.parse(localStorage.getItem("profileList"));
-  };
-
   const handleRegister = (profile) => {
-    //{ email: '',password: '',rePassword: '',first: '',last: '',nric: '',address: '',dob: '',contact: ''}
     setProfileList({
       ...profileList,
       [profile.email]: {
         password: profile.password,
-        fName: profile.first,
-        lName: profile.last,
-        nRIC: profile.nric,
+        fName: profile.fName,
+        lName: profile.lName,
+        nric: profile.nric,
         address: profile.address,
-        birthDate: profile.dob,
-        contactNumber: profile.contact,
+        birthDate: profile.birthDate,
+        contactNumber: profile.contactNumber,
       },
     });
-    // updateLocalStorage()
+    //why here when i console.log(profileList), it cannot show the most updated one?
   };
 
   const handleProfileUpdate = (profile) => {
-    //{ email:[currentEmail], profile: profileList[currentEmail] }
-    setProfileList({ ...profileList, [profile.email]: profile.profile });
-    // updateLocalStorage()
-    setCurrentProfile(profile);
+    const currentEmail = profile.email;
+    delete profile.email;
+    setProfileList({ ...profileList, [currentEmail]: profile });
+    setCurrentProfile({email:[currentEmail],profile:profile});
   };
+
   const handleSignInSuccess = (currentEmail) => {
     setCurrentProfile({
       email: [currentEmail],
       profile: profileList[currentEmail],
     });
     setIsLoggedIn(true);
+    console.log(currentProfile);
   };
 
   return (
@@ -113,79 +112,66 @@ const App = () => {
       {loading ? (
         <div className="loader-container">
           <img
-            className="elementToFadeInAndOut"
+            className="FadeInAndOut"
             src={loadPic}
             style={{ width: 500, height: 333 }}
             alt="InnovPay"
           />
         </div>
       ) : (
-        <div className="main-content" id="top">
-          <div className="animate__animated animate__fadeIn content-container">
-            <Router>
-              <Wrapper>
-                <div className="header">
-                  <Header
-                    isLoggedIn={isLoggedIn}
-                    setIsLoggedIn={setIsLoggedIn}
-                  />
-                </div>
-                <div className="content-component">
-                  <Routes>
-                    <Route path="/" element={<NavigateToHome />} />
-                    <Route
-                      path="/capstone-1-banking-app"
-                      element={
-                        <>
-                          <Hero />
-                          <KeyFeatures />
-                          <Contact />
-                        </>
-                      }
+        <div className="main-content FadeIn">
+          <Router>
+            <Wrapper>
+              <Header
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+              />
+              <Routes>
+                <Route path="/" element={<NavigateToHome />} />
+                <Route
+                  path="/capstone-1-banking-app"
+                  element={
+                    <>
+                      <Hero />
+                      <KeyFeatures />
+                      <Contact />
+                    </>
+                  }
+                />
+                <Route
+                  path="/login"
+                  element={
+                    <MuiSignInSide
+                      profileList={profileList}
+                      handleSignInSuccess={handleSignInSuccess}
                     />
-                    <Route
-                      path="/login"
-                      element={
-                        // <SignIn
-                        // 	profileList={profileList}
-                        // 	handleSignInSuccess={handleSignInSuccess}
-                        // />
-                        <MuiSignInSide
-                          profileList={profileList}
-                          handleSignInSuccess={handleSignInSuccess}
-                        />
-                      }
+                  }
+                />
+                <Route
+                  path="/registration"
+                  element={
+                  <RegistrationForm profileList={profileList} handleRegister={handleRegister}/>
+                }
+                  
+                />
+                <Route
+                  path="/Getintouch"
+                  element={<GetInTouch />}
+                />
+                <Route
+                  path="/profile"
+                  element={
+                    <Profile
+                      currentProfile={currentProfile}
+                      handleProfileUpdate={handleProfileUpdate}
+                      setIsLoggedIn={setIsLoggedIn}
                     />
-                    <Route
-                      path="/registration"
-                      element={
-                        // <Registration handleRegister={handleRegister} />
-                        <MuiSignup handleRegister={handleRegister} />
-                      }
-                    />
-                    <Route
-                      path="/Getintouch"
-                      element={
-                        // <Registration handleRegister={handleRegister} />
-                        <GetInTouch />
-                      }
-                    />
-                    <Route
-                      path="/profile"
-                      element={
-                        <Profile
-                          currentProfile={currentProfile}
-                          handleProfileUpdate={handleProfileUpdate}
-                          setIsLoggedIn={setIsLoggedIn}
-                        />
-                      }
-                    />
-                  </Routes>
-                </div>
-                <MuiFooter description="Terms of Use . Privacy Policy" />
-              </Wrapper>
-            </Router>
-          </div>
+                  }
+                />
+              </Routes>
+              <MuiFooter title="InnovePay" description="Terms of Use . Privacy Policy" />
+            </Wrapper>
+          </Router>
         </div>
       )}
     </div>
